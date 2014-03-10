@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-ENV.update YAML.load_file('config/settings.yml')[Rails.env] recsue {}
+ENV.update YAML.load_file('config/settings.yml')[Rails.env] rescue {}
 
 module MrScheduler
   class Application < Rails::Application
