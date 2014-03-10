@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+/*skip*/
+#skip{
+    margin:10px;
+	float:right;
+    background:#222;
+    border-radius:5px;
+	text-decoration:none;
+    color:#fff;
+    padding:10px;
+    bottom:20px;
+    right:20px;
+}
+#skip:hover{
+    transition:ease 0.5s 0s;
+    background:#555;
+}
+/*sticky*/
+#side-sticky-wraper{
+	
+}
+/*copyright*/
+.copyright{
+    position:absolute;
+    top:60px;
+    left:45%;
+	color:#222;
+}
