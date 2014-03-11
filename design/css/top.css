@@ -1,5 +1,8 @@
 @charset "utf-8";
-
+body{
+	background-image:url(../img/t-bg.jpg);
+	background-attachment: fixed;
+}
 /*main*/
 #main{
 	width:100%;
@@ -10,8 +13,9 @@
     bottom:100px;
 	height:250px;
 	width:80%;
-	background-color: rgba(0,0,0, 0.2);
+	background-color: rgba(256,256,256, 0.5);
     border-radius:10px;
+    padding:5px;
     margin:10px 10%;
 }
 
