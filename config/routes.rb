@@ -2,11 +2,11 @@ MrScheduler::Application.routes.draw do
   root 'welcome#index'
 
   devise_for :users, controllers: { registrations: "users/registrations" }
-  resources :comments
-
-  resources :tasks
-
+  
   resources :groups do
+    resources :tasks do
+      resources :comments
+    end
     member do
       get 'join' => 'groups#join_authorization'
       post 'join'

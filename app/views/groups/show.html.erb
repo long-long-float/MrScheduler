@@ -1,18 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% if @group.owner == current_user.id %>
+  <%= link_to 'Edit', edit_group_path(@group) %>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @group.name %>
-</p>
-
-<p>
-  <strong>Quiz:</strong>
-  <%= @group.quiz %>
-</p>
-
-<p>
-  <strong>Answer:</strong>
-  <%= @group.answer %>
 </p>
 
 <p>
@@ -20,5 +14,26 @@
   <%= @group.tags.map{|tag| "[#{tag}]"}.join %>
 </p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<h2>Tasks</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Deadline</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group.tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.content %></td>
+        <td><%= task.deadline %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'New task', new_group_task_path(@group) %>
