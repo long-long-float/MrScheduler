@@ -8,7 +8,7 @@ class Task < ActiveRecord::Base
 
   validates :group, presence: true
   validates :user, presence: true
-  validates :title, presence: true, length: { maximum: 100 }
-  validates :content, length: { maximum: 500 }
+  validates :title, presence: true, length: { maximum: 50 }
+  validates :content, length: { maximum: 200 }
   validates :deadline, presence: true
 end

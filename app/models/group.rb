@@ -9,4 +9,9 @@ class Group < ActiveRecord::Base
   before_save do
     users << User.find(owner) unless user_ids.include? owner
   end
+
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :quiz, presence: true, length: { maximum: 200 }
+  validates :answer, presence: true, length: { maximum: 200 }
+  validates :owner, presence: true, if: ->{ User.find_by(id: owner) }
 end
