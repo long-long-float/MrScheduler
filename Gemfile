@@ -45,3 +45,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+
+gem 'acts-as-taggable-on'
