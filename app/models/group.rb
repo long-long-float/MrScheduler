@@ -14,7 +14,7 @@ class Group < ActiveRecord::Base
     unless timetable
       create_timetable(author: owner,
         #9 x 5 empty timetable
-        data: 5.times.map{[''] * 9}.to_json)
+        data: 9.times.map{[''] * 5}.to_json)
     end
   end
 
