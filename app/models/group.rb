@@ -4,6 +4,8 @@ class Group < ActiveRecord::Base
 
   has_many :tasks
 
+  has_one :timetable
+
   acts_as_taggable
 
   before_save do
