@@ -1,0 +1,10 @@
+<%= form_tag(join_group_path(@group)) do %>
+  <%= @group.quiz %>
+  <div class="field">
+    <%= label :group, :answer %><br>
+    <%= text_area_tag :answer %>
+  </div>
+  <div class="actions">
+    <%= submit_tag 'Answer!' %>
+  </div>
+<% end %>
