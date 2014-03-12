@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/new
   def new
-    @group = Group.new
+    @group = Group.new(owner: current_user.id)
   end
 
   # GET /groups/1/edit
@@ -70,6 +70,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :quiz, :answer)
+      params.require(:group).permit(:name, :owner, :quiz, :answer)
     end
 end
