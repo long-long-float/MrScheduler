@@ -7,6 +7,7 @@ MrScheduler::Application.routes.draw do
     resources :tasks do
       resources :comments
     end
+    resource :timetable
     member do
       get 'join' => 'groups#join_authorization'
       post 'join'

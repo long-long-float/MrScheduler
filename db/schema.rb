@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312075905) do
+ActiveRecord::Schema.define(version: 20140312113513) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id",    null: false
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 20140312075905) do
     t.string   "title"
     t.text     "content"
     t.datetime "deadline"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "timetables", force: true do |t|
+    t.integer  "group_id"
+    t.integer  "author",     null: false
+    t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
