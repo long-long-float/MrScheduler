@@ -11,6 +11,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    @comment = Comment.new(user_id: current_user.id)
   end
 
   # GET /tasks/new
@@ -31,7 +32,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to group_path(group), notice: 'Task was successfully created.' }
+        format.html { redirect_to group, notice: 'Task was successfully created.' }
         format.json { render action: 'show', status: :created, location: @task }
       else
         format.html { render action: 'new' }
