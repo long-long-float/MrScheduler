@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <% if @group.owner == current_user.id %>
   <%= link_to 'Edit', edit_group_path(@group) %>
 <% end %>

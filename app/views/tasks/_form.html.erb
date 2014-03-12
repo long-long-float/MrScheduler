@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :deadline %><br>
-    <%= f.datetime_select :deadline %>
+    <%= f.datetime_select :deadline, start_year: Date.today.year, minute_step: 10 %>
   </div>
   <div class="field">
     <%= f.label :tags %><br>
