@@ -10,6 +10,12 @@ class Group < ActiveRecord::Base
 
   before_save do
     users << User.find(owner) unless user_ids.include? owner
+
+    unless timetable
+      create_timetable(author: owner,
+        #9 x 5 empty timetable
+        data: 5.times.map{[''] * 9}.to_json)
+    end
   end
 
   validates :name, presence: true, length: { maximum: 50 }
