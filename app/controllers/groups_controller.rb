@@ -27,8 +27,9 @@ class GroupsController < ApplicationController
       return redirect_to join_group_path(@group)
     end
 
-    
+    @group.users << current_user
 
+    flash[:notice] = "#{@group.name}に参加しました!"
     redirect_to root_path
   end
 

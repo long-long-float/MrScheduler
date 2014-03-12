@@ -14,7 +14,13 @@
       <tr>
         <td><%= group.name %></td>
         <td><%= group.tags.join(', ') %></td>
-        <td><%= link_to 'Join', join_group_path(group) %></td>
+        <td>
+          <% if group.users.include? current_user %>
+            参加済み
+          <% else %>
+            <%= link_to 'Join', join_group_path(group) %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
