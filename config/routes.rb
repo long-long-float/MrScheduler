@@ -6,7 +6,12 @@ MrScheduler::Application.routes.draw do
 
   resources :tasks
 
-  resources :groups
+  resources :groups do
+    member do
+      get 'join' => 'groups#join_authorization'
+      post 'join'
+    end
+  end
 
   resources :users
 

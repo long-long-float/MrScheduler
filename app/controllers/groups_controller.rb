@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :join_authorization, :join, :edit, :update, :destroy]
 
   # GET /groups
   # GET /groups.json
@@ -18,9 +18,23 @@ class GroupsController < ApplicationController
     @group = Group.new(owner: current_user.id)
   end
 
-  # GET /groups/1/edit
-  def edit
+  def join_authorization
   end
+
+  def join
+    unless params[:answer] == @group.answer
+      flash[:notice] = '回答が違います'
+      return redirect_to join_group_path(@group)
+    end
+
+    
+
+    redirect_to root_path
+  end
+
+  # GET /groups/1/edit
+  #def edit
+  #end
 
   # POST /groups
   # POST /groups.json
@@ -41,28 +55,28 @@ class GroupsController < ApplicationController
 
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
-  def update
-    @group.tag_list = params[:tag]
-    respond_to do |format|
-      if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #def update
+  #  @group.tag_list = params[:tag]
+  #  respond_to do |format|
+  #    if @group.update(group_params)
+  #      format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+  #      format.json { head :no_content }
+  #    else
+  #      format.html { render action: 'edit' }
+  #      format.json { render json: @group.errors, status: :unprocessable_entity }
+  #    end
+  #  end
+  #end
 
   # DELETE /groups/1
   # DELETE /groups/1.json
-  def destroy
-    @group.destroy
-    respond_to do |format|
-      format.html { redirect_to groups_url }
-      format.json { head :no_content }
-    end
-  end
+  #def destroy
+  #  @group.destroy
+  #  respond_to do |format|
+  #    format.html { redirect_to groups_url }
+  #    format.json { head :no_content }
+  #  end
+  #end
 
   private
     # Use callbacks to share common setup or constraints between actions.
