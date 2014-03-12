@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_many :tasks
+
+  validates :name, presence: true, length: { maximum: 20 }
+  validates :title, presence: true, length: { maximum: 20 }
 end
