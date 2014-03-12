@@ -5,7 +5,7 @@ MrScheduler::Application.routes.draw do
   
   resources :groups do
     resources :tasks do
-      resources :comments
+      resources :comments, only: [:create, :update, :destroy]
     end
     resource :timetable
     member do

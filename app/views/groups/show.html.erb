@@ -151,7 +151,7 @@
   <tbody>
     <% @group.tasks.each do |task| %>
       <tr>
-        <td><%= task.title %></td>
+        <td><%= link_to task.title, group_task_path(@group, task) %></td>
         <td><%= task.content %></td>
         <td><%= task.deadline %></td>
         <td><%= task.tags.join(', ') %></td>
