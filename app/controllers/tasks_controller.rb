@@ -27,6 +27,7 @@ class TasksController < ApplicationController
   def create
     group = Group.find(params[:group_id])
     @task = group.tasks.new(task_params)
+    @task.tag_list = params[:tags]
 
     respond_to do |format|
       if @task.save

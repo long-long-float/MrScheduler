@@ -26,8 +26,8 @@
     <%= f.text_area :answer %>
   </div>
   <div class="field">
-    <%= f.label :tag %><br>
-    <%= text_area_tag :tag, @group.tags.join(', ') %>
+    <%= f.label :tags %><br>
+    <%= text_area_tag :tags, @group.tags.join(', ') %>
   </div>
   <div class="actions">
     <%= f.submit %>

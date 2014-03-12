@@ -23,6 +23,10 @@
     <%= f.label :deadline %><br>
     <%= f.datetime_select :deadline %>
   </div>
+  <div class="field">
+    <%= f.label :tags %><br>
+    <%= text_area_tag :tags, @task.tags.join(', ') %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

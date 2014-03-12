@@ -21,6 +21,7 @@
       <th>Title</th>
       <th>Content</th>
       <th>Deadline</th>
+      <th>Tags</th>
     </tr>
   </thead>
 
@@ -30,6 +31,7 @@
         <td><%= task.title %></td>
         <td><%= task.content %></td>
         <td><%= task.deadline %></td>
+        <td><%= task.tags.join(', ') %></td>
       </tr>
     <% end %>
   </tbody>
