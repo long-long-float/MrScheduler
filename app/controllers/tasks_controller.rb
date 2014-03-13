@@ -14,13 +14,20 @@ class TasksController < ApplicationController
     @comment = Comment.new(user_id: current_user.id)
   end
 
+  def history
+    @task = Task.find(params[:task_id])
+  end
+
   # GET /tasks/new
   def new
     @task = Task.new(user_id: current_user.id)
+    @url = group_tasks_path params[:group_id]
   end
 
   # GET /tasks/1/edit
   def edit
+    @task.user = current_user
+    @url = group_task_path params[:group_id], @task
   end
 
   # POST /tasks
@@ -46,7 +53,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to group_task_path(@task.group, @task), notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,13 +64,13 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1
   # DELETE /tasks/1.json
-  def destroy
-    @task.destroy
-    respond_to do |format|
-      format.html { redirect_to tasks_url }
-      format.json { head :no_content }
-    end
-  end
+  #def destroy
+  #  @task.destroy
+  #  respond_to do |format|
+  #    format.html { redirect_to tasks_url }
+  #    format.json { head :no_content }
+  #  end
+  #end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_group, only: [:show, :join_authorization, :join, :edit, :update, :destroy]
+  before_filter :joining_check, only: [:show]
 
   # GET /groups
   # GET /groups.json
@@ -30,7 +31,7 @@ class GroupsController < ApplicationController
     @group.users << current_user
 
     flash[:notice] = "#{@group.name}に参加しました!"
-    redirect_to root_path
+    redirect_to @group
   end
 
   # GET /groups/1/edit
@@ -83,6 +84,13 @@ class GroupsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_group
       @group = Group.find(params[:id])
+    end
+
+    def joining_check
+      unless @group.users.include? current_user
+        flash[:notice] = "まだ#{@group.name}に参加していません"
+        redirect_to :back
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
