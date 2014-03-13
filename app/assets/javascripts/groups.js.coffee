@@ -2,6 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #= require redips-drag-min.js
+#= require jquery-ui.custom.min.js
+#= require fullcalendar.min.js
 
 reverse_col_row = (mat) ->
   ret = []
@@ -12,6 +14,8 @@ reverse_col_row = (mat) ->
   return ret
 
 $(document).ready ->
+  $('#calendar').fullCalendar({})
+
   data = $('#timetable-data').text()
   data = JSON.parse(data)
   $('#table2>tbody').children().each (i) ->
