@@ -49,3 +49,5 @@ gem 'devise'
 gem 'acts-as-taggable-on'
 
 gem 'paper_trail', '~> 3.0.0'
+
+gem 'gretel'

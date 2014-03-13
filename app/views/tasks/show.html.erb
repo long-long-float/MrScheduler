@@ -1,3 +1,6 @@
+<% breadcrumb @task %>
+<%= breadcrumbs %>
+
 <%= link_to '編集', edit_group_task_path(@task.group, @task) %>
  最終編集者:<%= @task.user.name %>
 
