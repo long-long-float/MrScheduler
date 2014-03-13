@@ -4,6 +4,7 @@
 #= require redips-drag-min.js
 #= require jquery-ui.custom.min.js
 #= require fullcalendar.min.js
+#= require jquery.balloon.min.js
 
 reverse_col_row = (mat) ->
   ret = []
@@ -17,15 +18,26 @@ $(document).ready ->
   tasks = JSON.parse($('#tasks-data').text())
   events = tasks.map (task) ->
     {
+      id: task.id
       title: task.title
       start: task.deadline
+      content: task.content
     }
-  $('#calendar').fullCalendar
-    dayClick: (date) ->
-      console.log "click #{date}"
-    #height: 500
-    #selectable: true
+  current_balloon = null
+  $('#calendar').fullCalendar(
     events: events
+    eventClick: (event) ->
+      current_balloon = event.id
+      $(this).attr('id', "event#{event.id}").showBalloon
+        contents: """
+          <a onclick='$(\"#event#{event.id}\").hideBalloon()' style='cursor: pointer'><i class="fa fa-times"></i></a>
+          <p>#{event.title}</p>
+          <p>#{event.content}</p>
+          """
+  ).click ->
+    for event in events
+      $("#event#{event.id}").hideBalloon() if current_balloon != event.id
+    current_balloon = null
 
   data = $('#timetable-data').text()
   data = JSON.parse(data)
