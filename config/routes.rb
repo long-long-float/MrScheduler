@@ -8,6 +8,7 @@ MrScheduler::Application.routes.draw do
   resources :groups do
     resources :tasks do
       resources :comments, only: [:create, :update, :destroy]
+      get 'history'
     end
     resource :timetable
     member do

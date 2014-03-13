@@ -1,6 +1,8 @@
 <%= link_to '編集', edit_group_task_path(@task.group, @task) %>
  最終編集者:<%= @task.user.name %>
 
+<%= link_to '編集履歴', group_task_history_path(@task.group, @task) %>
+
 <p>
   <strong>Title:</strong>
   <%= @task.title %>

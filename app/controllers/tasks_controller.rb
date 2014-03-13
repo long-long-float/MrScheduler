@@ -14,6 +14,10 @@ class TasksController < ApplicationController
     @comment = Comment.new(user_id: current_user.id)
   end
 
+  def history
+    @task = Task.find(params[:task_id])
+  end
+
   # GET /tasks/new
   def new
     @task = Task.new(user_id: current_user.id)
