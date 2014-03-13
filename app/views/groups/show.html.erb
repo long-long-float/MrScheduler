@@ -1,5 +1,6 @@
-<%= content_tag :div, @group.id, id: 'group-id', hidden: 'hidden' %>
-<%= content_tag :div, @group.timetable.data, id: 'timetable-data', hidden: 'hidden' %>
+<%= div_hidden 'group-id', @group.id %>
+<%= div_hidden 'timetable-data', @group.timetable.data %>
+<%= div_hidden 'tasks-data', @group.tasks.map(&:attributes).to_json %>
 
 <% breadcrumb @group %>
 <%= breadcrumbs %>

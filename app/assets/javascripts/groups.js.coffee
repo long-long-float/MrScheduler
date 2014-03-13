@@ -14,7 +14,18 @@ reverse_col_row = (mat) ->
   return ret
 
 $(document).ready ->
-  $('#calendar').fullCalendar({})
+  tasks = JSON.parse($('#tasks-data').text())
+  events = tasks.map (task) ->
+    {
+      title: task.title
+      start: task.deadline
+    }
+  $('#calendar').fullCalendar
+    dayClick: (date) ->
+      console.log "click #{date}"
+    #height: 500
+    #selectable: true
+    events: events
 
   data = $('#timetable-data').text()
   data = JSON.parse(data)
