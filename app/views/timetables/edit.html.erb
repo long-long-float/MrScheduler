@@ -10,15 +10,9 @@
         <col width="190"/>
       </colgroup>
       <tbody>
-        <tr><td class="dark"><div id="ar" class="drag clone ar">Arts</div><input id="b_ar" class="ar" type="button" value="" onclick="report('ar')" title="Show only Arts"/></td></tr>
-        <tr><td class="dark"><div id="bi" class="drag clone bi">Biology</div><input id="b_bi" class="bi" type="button" value="" onclick="report('bi')" title="Show only Biology"/></td></tr>
-        <tr><td class="dark"><div id="ch" class="drag clone ch">Chemistry</div><input id="b_ch" class="ch" type="button" value="" onclick="report('ch')" title="Show only Chemistry"/></td></tr>
-        <tr><td class="dark"><div id="en" class="drag clone en">English</div><input id="b_en" class="en" type="button" value="" onclick="report('en')" title="Show only English"/></td></tr>
-        <tr><td class="dark"><div id="et" class="drag clone et">Ethics</div><input id="b_et" class="et" type="button" value="" onclick="report('et')" title="Show only Ethics"/></td></tr>
-        <tr><td class="dark"><div id="hi" class="drag clone hi">History</div><input id="b_hi" class="hi" type="button" value="" onclick="report('hi')" title="Show only History"/></td></tr>
-        <tr><td class="dark"><div id="it" class="drag clone it">IT</div><input id="b_it" class="it" type="button" value="" onclick="report('it')" title="Show only IT"/></td></tr>
-        <tr><td class="dark"><div id="ma" class="drag clone ma">Mathematics</div><input id="b_ma" class="ma" type="button" value="" onclick="report('ma')" title="Show only Mathematics"/></td></tr>
-        <tr><td class="dark"><div id="ph" class="drag clone ph">Physics</div><input id="b_ph" class="ph" type="button" value="" onclick="report('ph')" title="Show only Physics"/></td></tr>
+        <% [['Arts', 'ar'], ['Biology', 'bi'], ['Chemistry', 'ch'], ['English', 'en'], ['Ethics', 'et'], ['History', 'hi'], ['IT', 'it'], ['Mathematics', 'ma'], ['Physics', 'ph']].each do |subject| %>
+          <tr><td class="dark"><div id="<%= subject[1] %>" class="drag clone <%= subject[1] %>"><%= subject[0] %></div><input id="b_<%= subject[1] %>" class="<%= subject[1] %>" type="button" value="" onclick="report('<%= subject[1] %>')" title="Show only <%= subject[0] %>"/></td></tr>
+        <% end %>
         <tr><td class="trash" title="Trash">Trash</td></tr>
       </tbody>
     </table>
@@ -26,98 +20,7 @@
   
   <!-- right container -->
   <div id="right">
-    <table id="table2">
-      <colgroup>
-        <col width="50"/>
-        <col width="100"/>
-        <col width="100"/>
-        <col width="100"/>
-        <col width="100"/>
-        <col width="100"/>
-      </colgroup>
-      <tbody>
-        <tr>
-          <td class="mark blank"></td>
-          <td class="mark dark">Monday</td>
-          <td class="mark dark">Tuesday</td>
-          <td class="mark dark">Wednesday</td>
-          <td class="mark dark">Thursday</td>
-          <td class="mark dark">Friday</td>
-        </tr>
-        <tr>
-          <td class="mark dark">8:00</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="mark dark">9:00</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="mark dark">10:00</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="mark dark">11:00</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="mark dark">12:00</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="mark dark">13:00</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="mark dark">14:00</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="mark dark">15:00</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="mark dark">16:00</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+    <%= render 'timetable' %>
   </div><!-- right container -->
 </div>
 <%= button_tag '保存', id: 'timetable-save-btn' %>
