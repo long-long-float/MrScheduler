@@ -3,6 +3,7 @@
   <head>
     <title>MrScheduler</title>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
@@ -11,12 +12,24 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <h1><%= link_to 'Mr.Scheduler', root_path %></h1>
+    <h1>
+      <%= link_to root_path do %>
+        <i class="fa fa-calendar"></i> Mr.Scheduler
+      <% end %>
+    </h1>
     <% if user_signed_in? %>
-      <%= link_to 'New group', new_group_path %>
-      <%= link_to 'All groups', groups_path %>
-      <%= link_to 'My groups', groups_path(joining: 1) %>
-      <%= link_to 'Sign out', destroy_user_session_path %>
+      <%= link_to new_group_path do %>
+        <i class="fa fa-bolt"></i> New group
+      <% end %>
+      <%= link_to groups_path do %>
+        <i class="fa fa-list"></i> All groups
+      <% end %>
+      <%= link_to groups_path(joining: 1) do %>
+        <i class="fa fa-list"></i> My groups
+      <% end %>
+      <%= link_to destroy_user_session_path do %>
+        <i class="fa fa-sign-out"></i> Sign out
+      <% end %>
     <% else %>
       <%= link_to 'Sign in', new_user_session_path %>
     <% end %>
