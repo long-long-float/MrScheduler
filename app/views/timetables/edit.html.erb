@@ -1,25 +1,5 @@
-<%= div_hidden 'timetable-data', @group.timetable.data %>
-<%= div_hidden 'tasks-data', @group.tasks.map(&:attributes).to_json %>
-
-<% breadcrumb @group %>
-<%= breadcrumbs %>
-
-<% if @group.owner == current_user.id %>
-  <%= link_to 'Edit', edit_group_path(@group) %>
-<% end %>
-
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= @group.tags.map{|tag| "[#{tag}]"}.join %>
-</p>
-
-<h2>Calendar</h2>
-<div id="calendar"></div>
+<%= div_hidden 'group-id', @timetable.group.id %>
+<%= div_hidden 'timetable-data', @timetable.data %>
 
 <h2>Timetable</h2>
 <div id="drag">
@@ -140,33 +120,4 @@
     </table>
   </div><!-- right container -->
 </div>
-<%= link_to '時間割の編集', edit_group_timetable_path(@group) %>
-<%= link_to '授業変更', change_group_timetable_path(@group) %>
-
-<h2>Tasks</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Deadline</th>
-      <th>Tags</th>
-      <th>Owner</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @group.tasks.each do |task| %>
-      <tr>
-        <td><%= link_to task.title, group_task_path(task.group, task) %></td>
-        <td><%= task.content %></td>
-        <td><%= task.deadline %></td>
-        <td><%= task.tags.join(', ') %></td>
-        <td><%= task.user.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<%= link_to 'New task', new_group_task_path(@group) %>
+<%= button_tag '保存', id: 'timetable-save-btn' %>

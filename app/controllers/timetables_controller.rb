@@ -1,7 +1,10 @@
 class TimetablesController < ApplicationController
+  before_action :set_timetable, only: [:edit, :update]
+
+  def edit
+  end
+
   def update
-    group = Group.find(params[:group_id])
-    @timetable = group.timetable
     respond_to do |format|
       if @timetable.update(timetable_params)
         format.json { head :no_content }
@@ -12,6 +15,10 @@ class TimetablesController < ApplicationController
   end
 
   private
+
+  def set_timetable
+    @timetable = Group.find(params[:group_id]).timetable
+  end
 
   def timetable_params
     params.permit(:data)
