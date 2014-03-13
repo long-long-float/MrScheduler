@@ -8,6 +8,7 @@
 
 @putSubjects = (callback) ->
   data = $('#timetable-data').text()
+  return if data == ''
   data = JSON.parse(data)
   $('#table2>tbody').children().each (i) ->
     return if i == 0
