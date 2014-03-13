@@ -6,28 +6,41 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <h1><%= link_to 'Mr.Scheduler', root_path %></h1>
-    <% if user_signed_in? %>
-      <%= link_to 'New group', new_group_path %>
-      <%= link_to 'All groups', groups_path %>
-      <%= link_to 'My groups', groups_path(joining: 1) %>
-      <%= link_to 'Sign out', destroy_user_session_path %>
-    <% else %>
-      <%= link_to 'Sign in', new_user_session_path %>
-    <% end %>
-
-    <hr>
-
-    <%= yield %>
-
-    <hr>
-
-    footer
-
+	<body>
+		<div id="header">
+			<div class="nav-in">
+				<div class="nav logo">
+					<a><%= link_to 'Mr.Scheduler', root_path %></a>
+				</div>
+				<div class="nav description">
+					<a>学生のためのソーシャル課題管理システム</a>
+				</div>
+				<div class="nav sns-box">
+					<ul>
+						<li><a href="#">facebook</a></li>
+						<li><a href="#">twitter</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="main">
+			<div class="menu-box">
+				<p class="notice"><%= notice %></p>
+				<p class="alert"><%= alert %></p>
+				<% if user_signed_in? %>
+					<%= link_to 'New group', new_group_path %>
+					<%= link_to 'All groups', groups_path %>
+					<%= link_to 'My groups', groups_path(joining: 1) %>
+					<%= link_to 'Sign out', destroy_user_session_path %>
+				<% else %>
+					<%= link_to 'Sign in', new_user_session_path %>
+				<% end %>
+			</div>
+			<%= yield %>
+		</div>
+		<div id="footer">
+			<a class="copyright">&copy; 2014 Mr.schedule</a>
+			<a id="skip" href="#header">ページトップへ</a>
+		</div>
   </body>
 </html>

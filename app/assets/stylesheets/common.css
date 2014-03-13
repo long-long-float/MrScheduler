@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+/*header*/
+#header{
+    overflow:hidden;
+	position:relative;
+    z-index:1000;
+    background:#fff;
+    width:100%;
+    -webkit-box-shadow: 0px 1px 7px #aaaaaa;
+    box-shadow: 0px 1px 7px #aaaaaa;
+}
+
+#header .nav-in{
+    overflow:hidden;
+    width:100%;
+    height:42px;
+    background:#222;
+}
+#header .nav{
+    margin:auto 10px;
+}
+#header .nav ul li{
+	
+}
+#header .nav ul li a{
+    text-decoration:none;
+    line-height:42px;
+    display:inline;
+    padding:0 5px;
+    color:#fff;
+    font-weight:bold;
+    float:right;
+}
+#header .nav ul li a:hover{
+	transition:ease 0.5s 0s;
+    background:#555;
+}
+
+#header .logo a{
+    padding:0 5px;
+    font-weight:bold;
+    text-decoration:none;
+    color:#fff;
+    line-height:42px;
+    float:left;
+}
+#header .logo a:hover{
+    transition:ease 0.5s 0s;
+    background:#555;
+}
+
+#header .description{
+	float:left;
+}
+#header .description a{
+    color:#fff;
+    line-height:42px;
+}
+#header .sns{
+    
+}
+/*side*/
+#side{
+    overflow:hidden;
+	padding:5 20px;
+	float:left;
+}
+
+/*main*/
+#main{
+	overflow:hidden;
+    position:relative;
+}
+
+/*content*/
+#content{
+    margin:10px 5px;
+    padding:10px;
+    background-color:rgba(256,256,256, 0.5);
+    border-radius:5px;
+    min-height:auto;
+	margin-left:auto;
+    margin-right:auto;
+    margin:auto;
+    width:75%;
+	border: dotted 1px #aaaaaa;
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-box-sizeing: border-box;
+	-moz-box-sizeing: 15px;
+	box-sizeing: borser-box;
+}
+#content .content-header{
+}
+#content h1{
+    font-size:24px;
+	clear: both;
+	border-bottom: solid 5px #c39f4a;
+    width:100%;
+}
+#content h2{
+    font-size:18px;
+	clear: both;
+	border-bottom: solid 5px #c39f4a;
+    width:100%;
+}
+/*footer*/
+#footer{
+    overflow:hidden;
+    position:relative;
+    background:#fff;
+    height:100px;
+    width:100%;
+}
+
+#main .work-box{
+    position:absolute;
+    top:250px;
+	height:auto;
+	width:80%;
+	background-color: rgba(256,256,256, 0.5);
+    border-radius:10px;
+    padding:5px;
+    margin:10px 10%;
+}
+
+#main .menu-box{
+    position:absolute;
+    top:30px;
+	height:30px;
+    line-height:30px;
+	width:80%;
+	background-color: rgba(256,256,256, 0.5);
+    border-radius:10px;
+    padding:5px;
+    margin:10px 10%;
+}

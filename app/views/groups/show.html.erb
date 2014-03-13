@@ -1,3 +1,5 @@
+
+<div class="work-box">
 <%= content_tag :div, @group.id, id: 'group-id', hidden: 'hidden' %>
 <%= content_tag :div, @group.timetable.data, id: 'timetable-data', hidden: 'hidden' %>
 
@@ -163,3 +165,4 @@
 
 
 <%= link_to 'New task', new_group_task_path(@group) %>
+</div>
