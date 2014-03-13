@@ -6,10 +6,6 @@ Mar, 2011.
 
 */
 
-body{
-  font-family: arial;
-  margin: 0px; /* for IE6 / IE7 */
-}
 
 
 /* drag container */
@@ -181,3 +177,11 @@ div#drag td{
       width: 40px;
       padding: 0px;
     }
+#table1{
+    float:left;
+    margin:5px;
+}
+#table2{
+    float:left;
+    margin:5px;
+}
