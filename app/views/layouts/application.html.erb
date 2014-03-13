@@ -30,8 +30,14 @@
       <%= link_to destroy_user_session_path do %>
         <i class="fa fa-sign-out"></i> Sign out
       <% end %>
+      <%= form_tag search_path, method: 'GET' do %>
+        <%= text_field_tag :query, params[:query] %>
+        <%= submit_tag '検索検索ぅ！' %>
+      <% end %>
     <% else %>
-      <%= link_to 'Sign in', new_user_session_path %>
+      <%= link_to new_user_session_path do %>
+        <i class="fa fa-sign-in"></i> Sign in
+      <% end %>
     <% end %>
 
     <hr>
