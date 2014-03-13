@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Group.find(params[:group_id]).tasks
   end
 
   # GET /tasks/1

@@ -2,6 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #= require redips-drag-min.js
+#= require jquery-ui.custom.min.js
+#= require fullcalendar.min.js
 
 reverse_col_row = (mat) ->
   ret = []
@@ -12,6 +14,19 @@ reverse_col_row = (mat) ->
   return ret
 
 $(document).ready ->
+  tasks = JSON.parse($('#tasks-data').text())
+  events = tasks.map (task) ->
+    {
+      title: task.title
+      start: task.deadline
+    }
+  $('#calendar').fullCalendar
+    dayClick: (date) ->
+      console.log "click #{date}"
+    #height: 500
+    #selectable: true
+    events: events
+
   data = $('#timetable-data').text()
   data = JSON.parse(data)
   $('#table2>tbody').children().each (i) ->
