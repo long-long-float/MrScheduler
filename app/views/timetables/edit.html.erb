@@ -2,25 +2,27 @@
 <%= div_hidden 'timetable-data', @timetable.data %>
 
 <h2>Timetable</h2>
-<div id="drag">
-  <!-- left container (table with subjects) -->
-  <div id="left">
-    <table id="table1">
-      <colgroup>
-        <col width="190"/>
-      </colgroup>
-      <tbody>
-        <% [['Arts', 'ar'], ['Biology', 'bi'], ['Chemistry', 'ch'], ['English', 'en'], ['Ethics', 'et'], ['History', 'hi'], ['IT', 'it'], ['Mathematics', 'ma'], ['Physics', 'ph']].each do |subject| %>
-          <tr><td class="dark"><div id="<%= subject[1] %>" class="drag clone <%= subject[1] %>"><%= subject[0] %></div><input id="b_<%= subject[1] %>" class="<%= subject[1] %>" type="button" value="" onclick="report('<%= subject[1] %>')" title="Show only <%= subject[0] %>"/></td></tr>
-        <% end %>
-        <tr><td class="trash" title="Trash">Trash</td></tr>
-      </tbody>
-    </table>
-  </div><!-- left container -->
-  
-  <!-- right container -->
-  <div id="right">
-    <%= render 'timetable' %>
-  </div><!-- right container -->
-</div>
+<div id="main_container">
+  <div id="drag">
+    <!-- left container (table with subjects) -->
+    <div id="left">
+      <table id="table1">
+        <colgroup>
+          <col width="190"/>
+        </colgroup>
+        <tbody>
+          <% [['Arts', 'ar'], ['Biology', 'bi'], ['Chemistry', 'ch'], ['English', 'en'], ['Ethics', 'et'], ['History', 'hi'], ['IT', 'it'], ['Mathematics', 'ma'], ['Physics', 'ph']].each do |subject| %>
+            <tr><td class="dark"><div id="<%= subject[1] %>" class="drag clone <%= subject[1] %>"><%= subject[0] %></div><input id="b_<%= subject[1] %>" class="<%= subject[1] %>" type="button" value="" onclick="report('<%= subject[1] %>')" title="Show only <%= subject[0] %>"/></td></tr>
+          <% end %>
+          <tr><td class="trash" title="Trash">Trash</td></tr>
+        </tbody>
+      </table>
+    </div><!-- left container -->
+    
+    <!-- right container -->
+    <div id="right">
+      <%= render 'timetable' %>
+    </div><!-- right container -->
+  </div>
+</div><!-- main container -->
 <%= button_tag '保存', id: 'timetable-save-btn' %>
