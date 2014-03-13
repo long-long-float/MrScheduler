@@ -1,0 +1,7 @@
+<h1>「<%= params[:query] %>」の検索結果(<%= @groups.count + @tasks.count %>件)</h1>
+<% @groups.each do |group| %>
+  <i class="fa fa-users"></i> <%= link_to group.name, group %>(<%= group.tag_list %>)<br>
+<% end %>
+<% @tasks.each do |task| %>
+  <i class="fa fa-flag-o"></i> <%= link_to task.title, group_task_path(task.group, task) %>(<%= task.tag_list %>)<br>
+<% end %>

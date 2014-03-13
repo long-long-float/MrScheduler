@@ -3,6 +3,8 @@ MrScheduler::Application.routes.draw do
 
   devise_for :users, controllers: { registrations: "users/registrations" }
   
+  get 'search' => 'search#search'
+
   resources :groups do
     resources :tasks do
       resources :comments, only: [:create, :update, :destroy]
