@@ -1,6 +1,5 @@
-<% if @task.user == current_user %>
-  <%= link_to 'edit', edit_group_task_path(@task.group, @task) %>
-<% end %>
+<%= link_to '編集', edit_group_task_path(@task.group, @task) %>
+ 最終編集者:<%= @task.user.name %>
 
 <p>
   <strong>Title:</strong>
