@@ -33,6 +33,7 @@ class ClassChangesController < ApplicationController
         format.html { redirect_to group, notice: 'Class change was successfully created.' }
         format.json { render action: 'show', status: :created, location: @class_change }
       else
+        @url = group_timetable_class_changes_path(params[:group_id])
         format.html { render action: 'new' }
         format.json { render json: @class_change.errors, status: :unprocessable_entity }
       end
