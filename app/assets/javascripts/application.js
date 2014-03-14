@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require redips-drag-min
 //= require common
+
+$(document).ready(function(){
+  $(".side-menu").StickyScroll({
+    duration:0
+  });
+});
