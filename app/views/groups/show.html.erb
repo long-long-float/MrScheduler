@@ -4,59 +4,92 @@
 <% breadcrumb @group %>
 <%= breadcrumbs %>
 
-<% if @group.owner == current_user.id %>
-  <%= link_to 'Edit', edit_group_path(@group) %>
-<% end %>
+<div class="work-box">
+  <%= content_tag :div, @group.id, id: 'group-id', hidden: 'hidden' %>
+  <%= content_tag :div, @group.timetable.data, id: 'timetable-data', hidden: 'hidden' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+  <% if @group.owner == current_user.id %>
+    <%= link_to 'Edit', edit_group_path(@group) %>
+  <% end %>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @group.tags.map{|tag| "[#{tag}]"}.join %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @group.name %>
+  </p>
 
-<h2>Calendar</h2>
-<div id="calendar"></div>
-
-<h2>Timetable</h2>
-<div id="drag">
-  <%= render 'timetables/timetable' %>
-</div>
-<%= link_to '時間割の編集', edit_group_timetable_path(@group) %>
-<%= link_to '授業変更', new_group_timetable_class_change_path(@group) %>
-
-<h2>授業変更</h2>
-<% @group.timetable.class_changes.each do |cc| %>
-  <%= cc.date1 %>　<%= cc.index1 %>時限目 と <%= cc.date2 %>　<%= cc.index2 %>時限目<br>
-<% end %>
-
-<h2>Tasks</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Deadline</th>
-      <th>Tags</th>
-      <th>Owner</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @group.tasks.each do |task| %>
+  <p>
+    <strong>Tags:</strong>
+    <%= @group.tags.map{|tag| "[#{tag}]"}.join %>
+  </p>
+  <br>
+  <h2>Tasks</h2>
+  <br>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to task.title, group_task_path(task.group, task) %></td>
-        <td><%= task.content %></td>
-        <td><%= task.deadline %></td>
-        <td><%= task.tags.join(', ') %></td>
-        <td><%= task.user.name %></td>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Deadline</th>
+        <th>Tags</th>
+        <th>Owner</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @group.tasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.title, group_task_path(@group, task) %></td>
+          <td><%= task.content %></td>
+          <td><%= task.deadline %></td>
+          <td><%= task.tags.join(', ') %></td>
+          <td><%= task.user.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New task', new_group_task_path(@group) %>
+  <%= link_to 'New task', new_group_task_path(@group) %>
+
+  <h2>Calendar</h2>
+  <div id="calendar"></div>
+
+  <br>
+  <h2>Timetable</h2>
+  <br>
+  <div id="drag">
+    <%= render 'timetables/timetable' %>
+  </div>
+  <%= link_to '時間割の編集', edit_group_timetable_path(@group) %>
+  <%= link_to '授業変更', new_group_timetable_class_change_path(@group) %>
+
+  <h2>授業変更</h2>
+  <% @group.timetable.class_changes.each do |cc| %>
+    <%= cc.date1 %>　<%= cc.index1 %>時限目 と <%= cc.date2 %>　<%= cc.index2 %>時限目<br>
+  <% end %>
+
+  <h2>Tasks</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Deadline</th>
+        <th>Tags</th>
+        <th>Owner</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @group.tasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.title, group_task_path(task.group, task) %></td>
+          <td><%= task.content %></td>
+          <td><%= task.deadline %></td>
+          <td><%= task.tags.join(', ') %></td>
+          <td><%= task.user.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
