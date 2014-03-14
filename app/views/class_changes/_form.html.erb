@@ -1,0 +1,33 @@
+<%= form_for(@class_change, url: @url) do |f| %>
+  <% if @class_change.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@class_change.errors.count, "error") %> prohibited this class_change from being saved:</h2>
+
+      <ul>
+      <% @class_change.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date1 %><br>
+    <%= f.date_select :date1 %>
+  </div>
+  <div class="field">
+    <%= f.label :index1 %><br>
+    <%= f.number_field :index1 %>
+  </div>
+  <div class="field">
+    <%= f.label :date2 %><br>
+    <%= f.date_select :date2 %>
+  </div>
+  <div class="field">
+    <%= f.label :index2 %><br>
+    <%= f.number_field :index2 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

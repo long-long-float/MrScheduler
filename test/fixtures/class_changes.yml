@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date1: 2014-03-14
+  index1: 1
+  date2: 2014-03-14
+  index2: 1
+
+two:
+  date1: 2014-03-14
+  index1: 1
+  date2: 2014-03-14
+  index2: 1

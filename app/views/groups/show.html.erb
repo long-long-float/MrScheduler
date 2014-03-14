@@ -26,7 +26,12 @@
   <%= render 'timetables/timetable' %>
 </div>
 <%= link_to '時間割の編集', edit_group_timetable_path(@group) %>
-<%= link_to '授業変更', change_group_timetable_path(@group) %>
+<%= link_to '授業変更', new_group_timetable_class_change_path(@group) %>
+
+<h2>授業変更</h2>
+<% @group.timetable.class_changes.each do |cc| %>
+  <%= cc.date1 %>　<%= cc.index1 %>時限目 と <%= cc.date2 %>　<%= cc.index2 %>時限目<br>
+<% end %>
 
 <h2>Tasks</h2>
 <table>

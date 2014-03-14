@@ -1,0 +1,33 @@
+<h1>Listing class_changes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date1</th>
+      <th>Index1</th>
+      <th>Date2</th>
+      <th>Index2</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @class_changes.each do |class_change| %>
+      <tr>
+        <td><%= class_change.date1 %></td>
+        <td><%= class_change.index1 %></td>
+        <td><%= class_change.date2 %></td>
+        <td><%= class_change.index2 %></td>
+        <td><%= link_to 'Show', class_change %></td>
+        <td><%= link_to 'Edit', edit_class_change_path(class_change) %></td>
+        <td><%= link_to 'Destroy', class_change, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Class change', new_class_change_path %>
