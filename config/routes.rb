@@ -12,8 +12,7 @@ MrScheduler::Application.routes.draw do
     end
 
     resource :timetable do
-      get 'change' => 'timetable#change_edit'
-      post 'change'
+      resources :class_changes, only: [:new, :create]
     end
 
     member do

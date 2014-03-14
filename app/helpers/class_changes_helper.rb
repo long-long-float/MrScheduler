@@ -1,0 +1,2 @@
+module ClassChangesHelper
+end
