@@ -5,7 +5,14 @@
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-  </head>
+	<script>
+		  $(document).ready(function(){
+			$(".side-menu").StickyScroll({
+				duration:0
+			});
+		  });
+	</script> 
+	</head>
 	<body>
 		<div id="header">
 			<div class="nav-in">
@@ -23,8 +30,8 @@
 				</div>
 			</div>
 		</div>
-		<div id="main">
-			<div class="menu-box">
+		<div id="side">
+			<div class="side-menu">
 				<ul>
 				<li><p class="notice"><%= notice %></p></li>
 				<li><p class="alert"><%= alert %></p></li>
@@ -38,6 +45,8 @@
 				<% end %>
 				</ul>
 			</div>
+		</div>
+		<div id="main">
 			<%= yield %>
 		</div>
 		<div id="footer">
