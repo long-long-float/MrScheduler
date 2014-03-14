@@ -60,7 +60,10 @@
 #header .sns{
     
 }
-/*side*/
+#header .inner{
+    width:100%;
+    height:200px;
+}
 /*side*/
 #side{
     position:absolute;
@@ -107,7 +110,11 @@
 	background-color: rgba(256,256,256, 0.8);
     border-radius:5px;
     padding:5px;
-    margin:0 ;
+    margin:0;
+}
+
+#main .work-box h1{
+    width:100%;
 }
 
 #main .menu-box{

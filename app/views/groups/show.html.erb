@@ -4,7 +4,6 @@
 <% breadcrumb @group %>
 <%= breadcrumbs %>
 
-<div class="work-box">
   <%= content_tag :div, @group.id, id: 'group-id', hidden: 'hidden' %>
   <%= content_tag :div, @group.timetable.data, id: 'timetable-data', hidden: 'hidden' %>
 
@@ -92,4 +91,3 @@
     </tbody>
   </table>
 
-</div>
