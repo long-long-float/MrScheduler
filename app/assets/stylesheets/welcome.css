@@ -1,5 +1,5 @@
 @charset "utf-8";
 body{
 	background-image:url(/assets/c-bg.jpg);
-	background-attachment: fixed;
+	background-attachment:fixed;
 }
