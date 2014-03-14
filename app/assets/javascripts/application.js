@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require redips-drag-min
+//= require sticky
 //= require common
+
+$(document).ready(function(){
+  $(".side-menu").StickyScroll({
+    duration:0
+  });
+});

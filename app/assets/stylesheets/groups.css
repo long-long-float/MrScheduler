@@ -10,12 +10,6 @@ Mar, 2011.
 
 */
 
-body{
-  font-family: arial;
-  margin: 0px; /* for IE6 / IE7 */
-}
-
-
 /* drag container */
 #main_container{
   margin: auto;
@@ -26,7 +20,7 @@ body{
       width: 130px;
       height: 320px;
       float: left;
-      margin-right: 20px;
+      margin-right:auto;
     }
     /* container for the main table and message line below */
     #main_container #right{
@@ -185,3 +179,12 @@ div#drag td{
       width: 40px;
       padding: 0px;
     }
+
+#left{
+    float:left;
+    margin:5px;
+}
+#right{
+    float:left;
+    margin:5px;
+}
