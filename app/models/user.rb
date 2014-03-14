@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :title, presence: true, length: { maximum: 20 }
+
+  def notify(content)
+    notifications.create(content: content)
+  end
 end

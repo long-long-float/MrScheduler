@@ -1,4 +1,5 @@
 MrScheduler::Application.routes.draw do
+  get "notifications/index"
   root 'welcome#index'
 
   devise_for :users, controllers: { registrations: "users/registrations" }
@@ -21,7 +22,9 @@ MrScheduler::Application.routes.draw do
     end
   end
 
-  resource :user
+  resource :user do
+    resources :notifications, only: [:index]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
