@@ -6,7 +6,9 @@ class ClassChange < ActiveRecord::Base
   validates :index1, presence: true, numericality: { greater_than: 0 }
   validates :date2, presence: true
   validates :index2, presence: true, numericality: { greater_than: 0 }
-  validate do
+  validate :same_class_check
+
+  def same_class_check
     errors.add(:date1, '同一の授業は指定できません') if date1 == date2 and index1 == index2
   end
 end

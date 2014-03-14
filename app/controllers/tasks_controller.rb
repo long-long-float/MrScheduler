@@ -42,6 +42,7 @@ class TasksController < ApplicationController
         format.html { redirect_to group, notice: 'Task was successfully created.' }
         format.json { render action: 'show', status: :created, location: @task }
       else
+        @url = group_tasks_path params[:group_id]
         format.html { render action: 'new' }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end

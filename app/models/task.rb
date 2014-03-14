@@ -13,4 +13,7 @@ class Task < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 50 }
   validates :content, length: { maximum: 200 }
   validates :deadline, presence: true
+  validate do
+    errors.add :deadline, 'いまより前にタスクを作ることはできません' if deadline <= DateTime.now
+  end
 end
