@@ -10,7 +10,12 @@ MrScheduler::Application.routes.draw do
       resources :comments, only: [:create, :update, :destroy]
       get 'history'
     end
-    resource :timetable
+
+    resource :timetable do
+      get 'change' => 'timetable#change_edit'
+      post 'change'
+    end
+
     member do
       get 'join' => 'groups#join_authorization'
       post 'join'

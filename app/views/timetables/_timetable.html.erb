@@ -1,0 +1,20 @@
+<table id="table2">
+  <colgroup>
+    <col width="50"/>
+    <% 5.times do %><col width="100"/><% end %>
+  </colgroup>
+  <tbody>
+    <tr>
+      <td class="mark blank"></td>
+      <% t('date.abbr_day_names')[1..5].each do |name| %>
+        <td class="mark dark"><%= name %></td>
+      <% end %>
+    </tr>
+    <% (8..16).each do |hour| %>
+      <tr>
+        <td class="mark dark"><%= hour %>:00</td>
+        <% 5.times do %><td></td><% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
