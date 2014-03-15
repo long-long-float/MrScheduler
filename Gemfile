@@ -51,10 +51,16 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# For Authentication
 gem 'devise'
 
+# For Tags
 gem 'acts-as-taggable-on'
 
+# For Versioning
 gem 'paper_trail', '~> 3.0.0'
 
+# For Breadcrumb
 gem 'gretel'
+
+gem 'clockwork'
