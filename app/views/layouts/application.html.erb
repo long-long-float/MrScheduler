@@ -19,10 +19,9 @@
 				<div class="nav description">
 					<a>学生のためのソーシャル課題管理システム</a>
 				</div>
-				<div class="nav sns-box">
+				<div class="nav notice-box">
 					<ul>
-						<li><a href="#">facebook</a></li>
-						<li><a href="#">twitter</a></li>
+						<li><a href="#">Notification</a></li>
 					</ul>
 				</div>
 			</div>
@@ -47,7 +46,7 @@
           <% end %></li>
           <%= form_tag search_path, method: 'GET' do %>
             <i class="fa fa-search"></i> <%= text_field_tag :query, params[:query], placeholder: 'タグを入力' %>
-            <%= submit_tag '検索検索ぅ！' %>
+            <%= submit_tag 'Search' %>
           <% end %>
 				<% else %>
 					<li><%= link_to new_user_session_path do %>
