@@ -56,7 +56,7 @@
   <h2>Timetable</h2> 作成者 <%= User.find(@group.timetable.author).name %>
   <br>
   <div id="drag">
-    <%= render 'timetables/timetable' %>
+    <%= render 'timetables/timetable', timetable: @group.timetable %>
   </div>
   <%= link_to '時間割の編集', edit_group_timetable_path(@group) %>
   <%= link_to '設定', edit_detail_group_timetable_path(@group) %>
