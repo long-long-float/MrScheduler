@@ -11,8 +11,11 @@ MrScheduler::Application.routes.draw do
       get 'history'
     end
 
-    resource :timetable do
+    resource :timetable, only: [:edit, :update] do
       resources :class_changes, only: [:new, :create]
+      get 'history'
+      get 'edit_detail'
+      post 'edit_detail' => 'timetables#update_detail'
     end
 
     member do

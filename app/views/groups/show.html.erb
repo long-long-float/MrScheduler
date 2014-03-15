@@ -53,13 +53,15 @@
   <div id="calendar"></div>
 
   <br>
-  <h2>Timetable</h2>
+  <h2>Timetable</h2> 作成者 <%= User.find(@group.timetable.author).name %>
   <br>
   <div id="drag">
-    <%= render 'timetables/timetable' %>
+    <%= render 'timetables/timetable', timetable: @group.timetable %>
   </div>
   <%= link_to '時間割の編集', edit_group_timetable_path(@group) %>
+  <%= link_to '設定', edit_detail_group_timetable_path(@group) %>
   <%= link_to '授業変更', new_group_timetable_class_change_path(@group) %>
+  <%= link_to '編集履歴', history_group_timetable_path(@group) %>
 
   <h2>授業変更</h2>
   <% @group.timetable.class_changes.each do |cc| %>

@@ -1,0 +1,5 @@
+<%= form_tag edit_detail_group_timetable_path(params[:group_id]) do %>
+  <%= label_tag '時限数' %>
+  <%= number_field_tag :period_count, @period_count, min: 1 %>
+  <%= submit_tag %>
+<% end %>
