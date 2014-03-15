@@ -27,3 +27,28 @@
     left:45%;
 	color:#222;
 }
+
+/* tooltip */
+.tooltipster-default {
+    position:absolute;
+	border-radius: 5px; 
+	border: 1px solid #ccc;
+	background: #fff;
+	color: #222;
+}
+
+.tooltipster-default .tooltipster-content {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	line-height: 16px;
+	padding: 8px 10px;
+	overflow: hidden;
+}
+.tooltipster-default .tooltipster-arrow .tooltipster-arrow-border {
+	/* border-color: ... !important; */
+}
+
+.tooltipster-icon {
+	cursor: help;
+	margin-left: 4px;
+}

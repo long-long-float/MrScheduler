@@ -207,3 +207,7 @@ input:focus,textarea:focus{
     float:left;
     clear:both;
 }
+form button{
+    width:60px;
+    cursor:pointer;
+}

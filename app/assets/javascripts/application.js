@@ -15,9 +15,21 @@
 //= require redips-drag-min
 //= require sticky
 //= require common
+//= require jquery.tooltipster.min
 
 $(document).ready(function(){
   $(".side-menu").StickyScroll({
     duration:0
+  });
+});
+
+$(function() {
+  $('#notifications').tooltipster({
+    content: $('<div>This is <i>Notification</i></div>'),
+    trigger: 'click',
+	position: 'bottom-left'
+  });
+  $(window).keypress(function () {
+    $('#notifications').tooltipster('hide');
   });
 });
