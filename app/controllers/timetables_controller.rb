@@ -1,5 +1,5 @@
 class TimetablesController < ApplicationController
-  before_action :set_timetable, only: [:edit, :update]
+  before_action :set_timetable, only: [:edit, :update, :history]
 
   def edit
   end
@@ -12,6 +12,15 @@ class TimetablesController < ApplicationController
         format.json { render json: @timetable.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit_detail
+  end
+
+  def update_detail
+  end
+
+  def history
   end
 
   private

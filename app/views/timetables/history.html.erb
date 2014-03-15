@@ -1,0 +1,3 @@
+<% @timetable.versions.each do |version| %>
+  <%= User.find(version.reify.author).name %><br>
+<% end %>
