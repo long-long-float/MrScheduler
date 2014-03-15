@@ -62,3 +62,5 @@ gem 'paper_trail', '~> 3.0.0'
 
 # For Breadcrumb
 gem 'gretel'
+
+gem 'clockwork'
