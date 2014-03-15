@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'groups' %>
+
 <%= div_hidden 'group-id', @timetable.group.id %>
 <%= div_hidden 'timetable-data', @timetable.data %>
 
@@ -21,7 +23,7 @@
     
     <!-- right container -->
     <div id="right">
-      <%= render 'timetable' %>
+      <%= render 'timetable', timetable: @timetable %>
     </div><!-- right container -->
   </div>
 </div><!-- main container -->
