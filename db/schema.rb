@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140314121447) do
+ActiveRecord::Schema.define(version: 20140315052723) do
 
   create_table "class_changes", force: true do |t|
     t.integer  "timetable_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140314121447) do
     t.integer  "index2"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_notified",  default: false
   end
 
   create_table "comments", force: true do |t|
@@ -38,6 +39,14 @@ ActiveRecord::Schema.define(version: 20140314121447) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "owner",      default: 0, null: false
+  end
+
+  create_table "notification_reservations", force: true do |t|
+    t.text     "content"
+    t.integer  "target_id"
+    t.string   "target_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "notifications", force: true do |t|
@@ -67,13 +76,14 @@ ActiveRecord::Schema.define(version: 20140314121447) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "tasks", force: true do |t|
-    t.integer  "group_id",   null: false
-    t.integer  "user_id",    null: false
+    t.integer  "group_id",                    null: false
+    t.integer  "user_id",                     null: false
     t.string   "title"
     t.text     "content"
     t.datetime "deadline"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_notified", default: false
   end
 
   create_table "timetables", force: true do |t|
