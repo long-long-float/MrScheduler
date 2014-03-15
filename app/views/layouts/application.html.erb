@@ -4,6 +4,8 @@
     <title>MrScheduler</title>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<%= stylesheet_link_tag "base", "common" ,"module"%>
+	<%= stylesheet_link_tag controller.controller_name %>
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag controller.controller_name %>
     <%= csrf_meta_tags %>

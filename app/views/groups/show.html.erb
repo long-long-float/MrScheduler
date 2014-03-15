@@ -66,28 +66,4 @@
     <%= cc.date1 %>　<%= cc.index1 %>時限目 と <%= cc.date2 %>　<%= cc.index2 %>時限目<br>
   <% end %>
 
-  <h2>Tasks</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Deadline</th>
-        <th>Tags</th>
-        <th>Owner</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @group.tasks.each do |task| %>
-        <tr>
-          <td><%= link_to task.title, group_task_path(task.group, task) %></td>
-          <td><%= task.content %></td>
-          <td><%= task.deadline %></td>
-          <td><%= task.tags.join(', ') %></td>
-          <td><%= task.user.name %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
 
