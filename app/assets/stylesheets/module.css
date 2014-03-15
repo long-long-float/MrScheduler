@@ -52,3 +52,6 @@
 	cursor: help;
 	margin-left: 4px;
 }
+#notifications{
+    cursor:pointer;
+}
