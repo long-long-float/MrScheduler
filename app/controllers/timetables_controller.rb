@@ -19,6 +19,7 @@ class TimetablesController < ApplicationController
   end
 
   def update_detail
+    #update height of timetable
     timetable = JSON.parse(@timetable.data)
     period_count = Integer(params[:period_count])
     perv_period_count = timetable.size
@@ -27,6 +28,20 @@ class TimetablesController < ApplicationController
       timetable << [''] * 5
     end
     @timetable.update_attributes(data: timetable.to_json)
+
+    #update subjects
+    subjects = JSON.parse(params[:subjects])
+    subjects.each do |subject_name|
+      next if @timetable.subjects.index{|s| s.name == subject_name }
+    
+      @timetable.subjects.create(name: subject_name, color: :blue)
+    end
+    @timetable.subjects.each do |subject|
+      next if subjects.include? subject.name
+
+      subject.destroy 
+    end
+
     redirect_to group_path(params[:group_id])
   end
 

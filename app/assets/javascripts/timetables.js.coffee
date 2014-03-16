@@ -1,8 +1,13 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+#
+#= require textext.core
+#= require textext.plugin.focus
+#= require textext.plugin.tags
 
 $(document).ready ->
+  # For edit
   putSubjects (label) ->
     $('<div>')
       .attr('class', "drag #{label[0...2].toLowerCase()}")
@@ -27,3 +32,8 @@ $(document).ready ->
       data: { data: JSON.stringify(table) }
       )
       .done -> location.href = group_path
+
+  # For edit_detail
+  $('#subjects').textext
+    plugins: 'focus tags'
+    tagsItems: JSON.parse($('#subjects-data').text())

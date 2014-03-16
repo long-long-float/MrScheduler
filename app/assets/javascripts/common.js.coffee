@@ -20,6 +20,8 @@
       $(this).html(callback(label))
 
 @enableTimetable = ->
+  return unless $('#drag').get(0)
+
   rd = REDIPS.drag
   rd.init()
   rd.dropMode = 'single'

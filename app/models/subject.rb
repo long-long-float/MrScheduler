@@ -1,4 +1,6 @@
 class Subject < ActiveRecord::Base
+  extend Enumerize
+
   belongs_to :timetable
 
   enumerize :color, in: [:blue, :yellow, :green, :red, :purple, :pink]
