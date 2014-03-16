@@ -32,19 +32,28 @@ html .fc,
 
 /* Header
 ------------------------------------------------------------------------*/
-
+.fc-header{
+    float:left;
+    border:none;
+}
 .fc-header td {
+    background:none;
+    border:none;
 	white-space: nowrap;
 	}
 
 .fc-header-left {
+    background:none;
+    border:none;
     display:block;
-	width: 100%;
+	width: auto;
 	float: left;
     clear:both;
 	}
 	
 .fc-header-center {
+    background:none;
+    border:none;
 	text-align: center;
 	}
 	
@@ -60,8 +69,8 @@ html .fc,
 	}
 	
 .fc-header-title h2 {
-	margin: 50px 0px 10px 100px;
-    width:100%;
+	margin: 0px 30px;
+    width:auto;
 	}
 	
 .fc .fc-header-space {

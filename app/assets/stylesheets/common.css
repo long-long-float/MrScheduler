@@ -68,10 +68,11 @@
 #side{
     position:absolute;
     width:25%;
-    height:1200px;
+    min-height:1000px;
+    height:auto;
 }
 #side .side-menu{
-    width:80%;
+    width:90%;
     margin:5%;
 }
 #side .side-menu ul li{
@@ -95,22 +96,23 @@
 
 /*main*/
 #main{
+    min-height:1000px;
     margin-left:25%;
 	width:80%;
-    height:1200px;
+    height:auto;
 	overflow:hidden;
     position:relative;
+    display:block;
+	clear:both;
 }
 
 #main .work-box{
-    position:absolute;
-    top:20px;
 	height:auto;
 	width:80%;
 	background-color: rgba(256,256,256, 0.8);
     border-radius:5px;
     padding:5px;
-    margin:0;
+    margin:20px 5px;
 }
 
 #main .work-box h1{
