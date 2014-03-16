@@ -13,7 +13,9 @@ class Timetable < ActiveRecord::Base
   def real_data
     JSON.parse(self.data).map do |row|
       row.map do |id|
-        Subject.find_by(id: id).try(:attributes)
+        Subject.find_by(id: id).try do |s|
+          s.attributes.slice('id', 'name', 'color')
+        end
       end
     end.to_json
   end

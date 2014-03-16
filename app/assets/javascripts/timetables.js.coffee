@@ -13,6 +13,7 @@ $(document).ready ->
     $('<div>')
       .addClass("drag #{subject.color}")
       .css('border-style': 'solid', 'cursor': 'move')
+      .data('id', subject.id)
       .text(subject.name)
 
   enableTimetable()
