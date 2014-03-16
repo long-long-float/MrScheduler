@@ -1,8 +1,9 @@
 /*
-*= require fullcalendar 
+*= require fullcalendar
 */
 
 /*
+
 
 Darko Bunic
 http://www.redips.net/
@@ -13,17 +14,19 @@ Mar, 2011.
 /* drag container */
 #main_container{
   margin: auto;
-  width: 730px;
+  width: 100%;
+  height:420px;
 }
     /* container for the left table */
     #main_container #left{
-      width: 130px;
-      height: 320px;
+      width: 110px;
+      height: auto;
       float: left;
       margin-right:auto;
     }
     /* container for the main table and message line below */
     #main_container #right{
+      height:auto;
       width: 675px;
       padding-left: auto;
       padding-right: 0px;
@@ -85,15 +88,13 @@ div#drag td{
     }
       /* styles for clone DIV elements in left table */
       div#drag #table1 div {
-        margin-left: 50px;
-        float: left;
+       float:left;
       }
       /* define styles for buttons */
       div#drag #table1 input {
         float: right;
         width: 15px;
         height: 23px;
-        margin-right: 5px;
         border-width: 1px;
         /* round corners */
         border-radius: 3px;
@@ -204,3 +205,10 @@ tr{
     border:none;
 }
 
+#drag{
+    width:100%;
+    height:100%;
+}
+button{
+   cursor:pointer;
+}
