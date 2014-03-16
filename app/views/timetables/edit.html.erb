@@ -13,8 +13,8 @@
           <col width="190"/>
         </colgroup>
         <tbody>
-          <% [['Arts', 'ar'], ['Biology', 'bi'], ['Chemistry', 'ch'], ['English', 'en'], ['Ethics', 'et'], ['History', 'hi'], ['IT', 'it'], ['Mathematics', 'ma'], ['Physics', 'ph']].each do |subject| %>
-            <tr><td class="dark"><div id="<%= subject[1] %>" class="drag clone <%= subject[1] %>"><%= subject[0] %></div><input id="b_<%= subject[1] %>" class="<%= subject[1] %>" type="button" value="" onclick="report('<%= subject[1] %>')" title="Show only <%= subject[0] %>"/></td></tr>
+          <% @timetable.subjects.each do |s| %>
+            <tr><td class="dark"><div class="drag clone <%= s.color %>"><%= s.name %></div></td></tr>
           <% end %>
           <tr><td class="trash" title="Trash"><i class="fa fa-trash-o"></i> ごみ箱</td></tr>
         </tbody>

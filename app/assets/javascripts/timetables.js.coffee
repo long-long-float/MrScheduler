@@ -34,6 +34,7 @@ $(document).ready ->
       .done -> location.href = group_path
 
   # For edit_detail
-  $('#subjects').textext
-    plugins: 'focus tags'
-    tagsItems: JSON.parse($('#subjects-data').text())
+  if $('#subjects').get(0)
+    $('#subjects').textext
+      plugins: 'focus tags'
+      tagsItems: JSON.parse($('#subjects-data').text())
