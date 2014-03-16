@@ -9,4 +9,12 @@ class Timetable < ActiveRecord::Base
   validates :group, presence: true
   validates :author, presence: true, if: -> { User.find_by(id: author) }
   validates :data, presence: true
+
+  def real_data
+    JSON.parse(self.data).map do |row|
+      row.map do |id|
+        Subject.find_by(id: id).try(:attributes)
+      end
+    end.to_json
+  end
 end

@@ -1,11 +1,9 @@
-<%= div_hidden 'timetable-data', @timetable_data %>
+<%= div_hidden 'timetable-data', @group.timetable.real_data %>
 <%= div_hidden 'tasks-data', @group.tasks.map(&:attributes).to_json %>
+<%= div_hidden 'group-id', @group.id %>
 
 <% breadcrumb @group %>
 <%= breadcrumbs %>
-
-  <%= content_tag :div, @group.id, id: 'group-id', hidden: 'hidden' %>
-  <%= content_tag :div, @group.timetable.data, id: 'timetable-data', hidden: 'hidden' %>
 
   <% if @group.owner == current_user.id %>
     <%= link_to 'Edit', edit_group_path(@group) %>

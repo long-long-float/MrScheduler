@@ -8,11 +8,12 @@
 
 $(document).ready ->
   # For edit
-  putSubjects (label) ->
+  putSubjects (subject) ->
+    console.log subject
     $('<div>')
-      .attr('class', "drag #{label[0...2].toLowerCase()}")
+      .addClass("drag #{subject.color}")
       .css('border-style': 'solid', 'cursor': 'move')
-      .text(label)
+      .text(subject.name)
 
   enableTimetable()
 
