@@ -31,4 +31,4 @@ $(document).ready ->
         $("#event#{event.id}").hideBalloon() if current_balloon != event.id
       current_balloon = null
 
-  putSubjects (label) -> $('<div>').addClass(label[0..1].toLowerCase()).text(label)
+  putSubjects (subject) -> $('<div>').addClass(subject.color).text(subject.name)

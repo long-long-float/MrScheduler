@@ -64,3 +64,5 @@ gem 'paper_trail', '~> 3.0.0'
 gem 'gretel'
 
 gem 'clockwork'
+
+gem 'enumerize'

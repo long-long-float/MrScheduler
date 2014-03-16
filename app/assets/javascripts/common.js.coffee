@@ -16,10 +16,11 @@
       return if j == 0
 
       label = data[i - 1][j - 1]
-      return if label == ''
-      $(this).html(callback(label))
+      $(this).html(callback(label)) if label
 
 @enableTimetable = ->
+  return unless $('#drag').get(0)
+
   rd = REDIPS.drag
   rd.init()
   rd.dropMode = 'single'

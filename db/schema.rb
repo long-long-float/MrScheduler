@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140315052723) do
+ActiveRecord::Schema.define(version: 20140316091232) do
 
   create_table "class_changes", force: true do |t|
     t.integer  "timetable_id"
@@ -41,10 +41,26 @@ ActiveRecord::Schema.define(version: 20140315052723) do
     t.integer  "owner",      default: 0, null: false
   end
 
+  create_table "notification_reservations", force: true do |t|
+    t.text     "content"
+    t.integer  "target_id"
+    t.string   "target_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "notifications", force: true do |t|
     t.integer  "user_id"
     t.text     "content"
     t.boolean  "is_read",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subjects", force: true do |t|
+    t.integer  "timetable_id"
+    t.string   "name"
+    t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

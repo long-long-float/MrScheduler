@@ -14,6 +14,7 @@ MrScheduler::Application.routes.draw do
     resource :timetable, only: [:edit, :update] do
       resources :class_changes, only: [:new, :create]
       get 'history'
+      post 'rollback'
       get 'edit_detail'
       post 'edit_detail' => 'timetables#update_detail'
     end

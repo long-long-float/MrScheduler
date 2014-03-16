@@ -1,13 +1,19 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+#
+#= require textext.core
+#= require textext.plugin.focus
+#= require textext.plugin.tags
 
 $(document).ready ->
-  putSubjects (label) ->
+  # For edit
+  putSubjects (subject) ->
+    console.log subject
     $('<div>')
-      .attr('class', "drag #{label[0...2].toLowerCase()}")
+      .addClass("drag #{subject.color}")
       .css('border-style': 'solid', 'cursor': 'move')
-      .text(label)
+      .text(subject.name)
 
   enableTimetable()
 
@@ -16,7 +22,7 @@ $(document).ready ->
       return if i == 0
       cells = $(this).children().map((j) ->
         return if j == 0
-        $(this).text()
+        $(this).children('div').data('id') ? 0
         ).get()
       [cells]
       ).get()
@@ -27,3 +33,9 @@ $(document).ready ->
       data: { data: JSON.stringify(table) }
       )
       .done -> location.href = group_path
+
+  # For edit_detail
+  if $('#subjects').get(0)
+    $('#subjects').textext
+      plugins: 'focus tags'
+      tagsItems: JSON.parse($('#subjects-data').text())
