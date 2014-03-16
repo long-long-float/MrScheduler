@@ -41,14 +41,6 @@ ActiveRecord::Schema.define(version: 20140316091232) do
     t.integer  "owner",      default: 0, null: false
   end
 
-  create_table "notification_reservations", force: true do |t|
-    t.text     "content"
-    t.integer  "target_id"
-    t.string   "target_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "notifications", force: true do |t|
     t.integer  "user_id"
     t.text     "content"
