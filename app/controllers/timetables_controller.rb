@@ -1,5 +1,5 @@
 class TimetablesController < ApplicationController
-  before_action :set_timetable, only: [:edit, :update, :history, :edit_detail, :update_detail]
+  before_action :set_timetable, only: [:edit, :update, :history, :rollback, :edit_detail, :update_detail]
 
   def edit
   end
@@ -46,6 +46,14 @@ class TimetablesController < ApplicationController
   end
 
   def history
+  end
+
+  def rollback
+    version_id = Integer(params[:version_id])
+    @timetable = @timetable.versions[version_id].reify
+    @timetable.save
+
+    redirect_to group_path(@timetable.group)
   end
 
   private
