@@ -15,7 +15,8 @@ Mar, 2011.
 #main_container{
   margin: auto;
   width: 100%;
-  height:420px;
+  min-height:430px;
+  height:auto;
 }
     /* container for the left table */
     #main_container #left{
@@ -182,9 +183,15 @@ tr{
 }
 
 #drag{
+    min-height:430px;
+    height:auto;
     width:100%;
     height:100%;
 }
-button{
+#table1{
+    border:none;
+}
+#timetable-save-btn{
    cursor:pointer;
+   float:right
 }
