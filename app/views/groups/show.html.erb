@@ -45,7 +45,7 @@
     </tbody>
   </table>
 
-  <%= link_to 'New task', new_group_task_path(@group) %>
+  <%= link_to 'New task', new_group_task_path(@group),:class =>'btn1' %>
 	<h2>Calendar</h2>
   <div id="calendar"></div>
 
@@ -55,14 +55,20 @@
   <div id="drag">
     <%= render 'timetables/timetable', timetable: @group.timetable %>
   </div>
-  <%= link_to '時間割の編集', edit_group_timetable_path(@group) %>
-  <%= link_to '設定', edit_detail_group_timetable_path(@group) %>
-  <%= link_to '授業変更', new_group_timetable_class_change_path(@group) %>
-  <%= link_to '編集履歴', history_group_timetable_path(@group) %>
-
+  <div class="btn-gp">
+  <%= link_to '時間割の編集', edit_group_timetable_path(@group),:class =>'btn1' %>
+  <%= link_to '設定', edit_detail_group_timetable_path(@group),:class =>'btn1' %>
+  <%= link_to '編集履歴', history_group_timetable_path(@group),:class =>'btn1' %>
+  </div>
   <h2>授業変更</h2>
+   <table>
+   <tr><th>変更前日付</th><th>変更前時限</th><th>変更後日付</th><th>変更後時限</th></tr>
   <% @group.timetable.class_changes.each do |cc| %>
-    <%= cc.date1 %>　<%= cc.index1 %>時限目 と <%= cc.date2 %>　<%= cc.index2 %>時限目<br>
-  <% end %>
+	<tr><td><%= cc.date1 %></td><td><%= cc.index1 %>時限目</td><td><%= cc.date2 %></td><td><%= cc.index2 %>時限目</td></tr>
+ <% end %>
+ </table>
+ <div class="btn-gp">
+  <%= link_to '授業変更', new_group_timetable_class_change_path(@group),:class =>'btn1' %>
+ </div>
 
 

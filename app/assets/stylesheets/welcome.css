@@ -1,18 +1,20 @@
 @charset "utf-8";
-body{
-	background-image:url(/assets/c-bg.jpg);
-	background-attachment:fixed;
-}
+
 .expl{
     padding:10px;
 }
 .expl .title{
-    border-bottom:2px solid #555eee;
+    border-top:3px solid #444eee;
+    border-bottom:3px solid #444eee;
     margin:20px 0;
 }
 
 .expl .cat{
+    font-size:26px;
     margin:10px 0;
+    background:#ccc;
+    border-top:1px dotted;
+    border-bottom:1px dotted;
 }
 
 .expl .ss{
