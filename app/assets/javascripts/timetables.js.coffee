@@ -21,7 +21,7 @@ $(document).ready ->
       return if i == 0
       cells = $(this).children().map((j) ->
         return if j == 0
-        $(this).text()
+        $(this).children('div').data('id') ? 0
         ).get()
       [cells]
       ).get()

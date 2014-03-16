@@ -1,4 +1,4 @@
-<%= div_hidden 'timetable-data', @group.timetable.data %>
+<%= div_hidden 'timetable-data', @timetable_data %>
 <%= div_hidden 'tasks-data', @group.tasks.map(&:attributes).to_json %>
 
 <% breadcrumb @group %>

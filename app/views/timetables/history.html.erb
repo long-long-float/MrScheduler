@@ -1,3 +1,3 @@
-<% @timetable.versions.each_with_index do |version, id| %>
+<% @timetable.versions.each_with_index.reverse_each do |version, id| %>
   <%= User.find(version.reify.author).name %> <%= link_to 'ここまで戻す', rollback_group_timetable_path(@timetable.group, version_id: id ), method: 'POST' %><br>
 <% end %>

@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'groups' %>
+<%#= stylesheet_link_tag 'groups' %>
 
 <%= div_hidden 'group-id', @timetable.group.id %>
 <%= div_hidden 'timetable-data', @timetable.data %>
@@ -14,7 +14,7 @@
         </colgroup>
         <tbody>
           <% @timetable.subjects.each do |s| %>
-            <tr><td class="dark"><div class="drag clone <%= s.color %>"><%= s.name %></div></td></tr>
+            <tr><td class="dark"><div data-id="<%= s.id %>" class="drag clone <%= s.color %>"><%= s.name %></div></td></tr>
           <% end %>
           <tr><td class="trash" title="Trash"><i class="fa fa-trash-o"></i> ごみ箱</td></tr>
         </tbody>

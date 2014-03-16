@@ -12,6 +12,11 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @timetable_data = JSON.parse(@group.timetable.data).map do |row|
+      row.map do |id|
+        Subject.find_by(id: id).try(:name) || ''
+      end
+    end.to_json
   end
 
   # GET /groups/new
