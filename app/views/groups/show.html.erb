@@ -10,25 +10,25 @@
   <% end %>
 
   <p>
-    <strong>Name:</strong>
+    <strong>グループ名:</strong>
     <%= @group.name %>
   </p>
 
   <p>
-    <strong>Tags:</strong>
+    <strong>タグ:</strong>
     <%= @group.tags.map{|tag| "[#{tag}]"}.join %>
   </p>
   <br>
-  <h2>Tasks</h2>
+  <h2>タスク</h2>
   <br>
   <table>
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Deadline</th>
-        <th>Tags</th>
-        <th>Owner</th>
+        <th>タイトル</th>
+        <th>内容</th>
+        <th>期限</th>
+        <th>タグ</th>
+        <th>投稿者</th>
       </tr>
     </thead>
 
@@ -45,12 +45,12 @@
     </tbody>
   </table>
 
-  <%= link_to 'New task', new_group_task_path(@group),:class =>'btn1' %>
-	<h2>Calendar</h2>
+  <%= link_to '新しいタスク', new_group_task_path(@group),:class =>'btn1' %>
+	<h2>カレンダー</h2>
   <div id="calendar"></div>
 
   <br>
-  <h2>Timetable</h2> 作成者 <%= User.find(@group.timetable.author).name %>
+  <h2>時間割</h2> 作成者 <%= User.find(@group.timetable.author).name %>
   <br>
   <div id="drag">
     <%= render 'timetables/timetable', timetable: @group.timetable %>

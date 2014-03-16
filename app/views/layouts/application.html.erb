@@ -34,16 +34,16 @@
 				<% if user_signed_in? %>
           <li><%= link_to "Notifications(#{current_user.notifications.where(is_read: false).count})", user_notifications_path %></li>
 					<li><%= link_to new_group_path do %>
-            <i class="fa fa-bolt"></i> New group
+            <i class="fa fa-bolt"></i> グループ作成
           <% end %></li>
           <li><%= link_to groups_path do %>
-            <i class="fa fa-list"></i> All groups
+            <i class="fa fa-list"></i> 全てのグループ
           <% end %></li>
           <li><%= link_to groups_path(joining: 1) do %>
-            <i class="fa fa-list"></i> My groups
+            <i class="fa fa-list"></i> 参加中のグループ
           <% end %></li>
           <li><%= link_to destroy_user_session_path do %>
-            <i class="fa fa-sign-out"></i> Sign out
+            <i class="fa fa-sign-out"></i> ログアウト
           <% end %></li>
           <%= form_tag search_path, method: 'GET' do %>
             <i class="fa fa-search"></i> <%= text_field_tag :query, params[:query], placeholder: 'タグを入力' %>
@@ -51,7 +51,7 @@
           <% end %>
 				<% else %>
 					<li><%= link_to new_user_session_path do %>
-            <i class="fa fa-sign-in"></i> Sign in
+            <i class="fa fa-sign-in"></i> ログイン
           <% end %></li>
 				<% end %>
 				</ul>
