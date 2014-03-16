@@ -2,6 +2,7 @@ class Timetable < ActiveRecord::Base
   belongs_to :group
 
   has_many :class_changes
+  has_many :subjects
 
   has_paper_trail
 
