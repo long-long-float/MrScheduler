@@ -1,3 +1,5 @@
+<%= div_hidden 'tags-data', @group.tags.map(&:to_s).to_json %>
+
 <%= form_for(@group) do |f| %>
   <% if @group.errors.any? %>
     <div id="error_explanation">
@@ -27,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :tags %><br>
-    <%= text_area_tag :tags, @group.tags.join(', ') %>
+    <%= text_area_tag :tags, '', cols: 40, rows: 1 %>
   </div>
   <div class="actions">
     <%= f.submit %>

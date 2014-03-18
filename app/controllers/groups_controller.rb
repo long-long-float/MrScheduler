@@ -60,18 +60,22 @@ class GroupsController < ApplicationController
 
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
-  #def update
-  #  @group.tag_list = params[:tag]
-  #  respond_to do |format|
-  #    if @group.update(group_params)
-  #      format.html { redirect_to @group, notice: 'Group was successfully updated.' }
-  #      format.json { head :no_content }
-  #    else
-  #      format.html { render action: 'edit' }
-  #      format.json { render json: @group.errors, status: :unprocessable_entity }
-  #    end
-  #  end
-  #end
+  def update
+    unless @group.owner == current_user.id
+      redirect_to root_path, notice: '許可されていない操作です'
+    end
+
+    @group.tag_list = JSON.parse(params[:tags])
+    respond_to do |format|
+      if @group.update(group_params)
+        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /groups/1
   # DELETE /groups/1.json
