@@ -68,7 +68,7 @@ div#drag table {
     div#drag #table2 {
       /* align table to the right */
       margin-left: auto;
-      float:left;
+      /*float:left;*/
     }
 
 
