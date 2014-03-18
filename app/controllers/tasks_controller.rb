@@ -35,7 +35,7 @@ class TasksController < ApplicationController
   def create
     group = Group.find(params[:group_id])
     @task = group.tasks.new(task_params)
-    @task.tag_list = params[:tags]
+    @task.tag_list = JSON.parse(params[:tags])
 
     respond_to do |format|
       if @task.save
@@ -52,6 +52,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+    @task.tag_list = JSON.parse(params[:tags])
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to group_task_path(@task.group, @task), notice: 'Task was successfully updated.' }
