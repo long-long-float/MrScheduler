@@ -4,18 +4,13 @@
 		position:relative;
 		width:100%;
 	}
-	.side-menu{
-        position:relative;
-        height:auto;
-    }
 	#main{
 		margin:0;
 		width:100%;
 	}
-	.work-box{
-		clear:both;
-		margin:0;
-		width:100%;	
+	#main .work-box{
+        margin:5px;
+		width:95%;	
 	}
 	.fc-header-right{
 		visibility:hidden;

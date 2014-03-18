@@ -44,7 +44,7 @@
       <% end %>
     </tbody>
   </table>
-
+  <br>
   <%= link_to '新しいタスク', new_group_task_path(@group),:class =>'btn1' %>
 	<h2>カレンダー</h2>
   <div id="calendar"></div>
@@ -67,6 +67,7 @@
 	<tr><td><%= cc.date1 %></td><td><%= cc.index1 %>時限目</td><td><%= cc.date2 %></td><td><%= cc.index2 %>時限目</td></tr>
  <% end %>
  </table>
+ <br>
  <div class="btn-gp">
   <%= link_to '授業変更', new_group_timetable_class_change_path(@group),:class =>'btn1' %>
  </div>
