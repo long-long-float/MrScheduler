@@ -21,7 +21,7 @@
   <br>
   <h2>タスク</h2>
   <br>
-  <table>
+  <table class="tk">
     <thead>
       <tr>
         <th>タイトル</th>
@@ -61,7 +61,7 @@
   <%= link_to '編集履歴', history_group_timetable_path(@group),:class =>'btn1' %>
   </div>
   <h2>授業変更</h2>
-   <table>
+   <table class="cc">
    <tr><th>変更前日付</th><th>変更前時限</th><th>変更後日付</th><th>変更後時限</th></tr>
   <% @group.timetable.class_changes.each do |cc| %>
 	<tr><td><%= cc.date1 %></td><td><%= cc.index1 %>時限目</td><td><%= cc.date2 %></td><td><%= cc.index2 %>時限目</td></tr>
