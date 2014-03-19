@@ -15,4 +15,10 @@
 	.fc-header-right{
 		visibility:hidden;
 	}
+  .nav.description{
+    visibility:hidden;
+  }
+  .nav.notice-box{
+    float:left;
+  }
 }
