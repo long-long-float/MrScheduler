@@ -6,20 +6,21 @@
 <% breadcrumb @group %>
 <%= breadcrumbs %>
 
-  <% if @group.owner == current_user.id %>
-    <%= link_to 'Edit', edit_group_path(@group) %>
-  <% end %>
-
   <p>
     <strong>グループ名:</strong>
     <%= @group.name %>
   </p>
-
-  <p>
-    <strong>タグ:</strong>
-    <%= @group.tags.map{|tag| "[#{tag}]"}.join %>
-  </p>
   <br>
+  <p><strong>タグ:</strong></p>
+    <% @group.tags.each do|tag| %>
+    <a class="label"><%= tag %></a>
+    <% end %>
+    <br>
+  <div class="btn-gp">
+  <% if @group.owner == current_user.id %>
+    <%= link_to 'グループの編集', edit_group_path(@group),class:"btn1" %>
+  <% end %>
+  </div>
   <h2>タスク</h2>
   <br>
   <table class="tk">
