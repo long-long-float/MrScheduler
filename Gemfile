@@ -51,6 +51,12 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# For debug
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
 # For Authentication
 gem 'devise'
 
