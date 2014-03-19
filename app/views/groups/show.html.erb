@@ -1,5 +1,6 @@
 <%= div_hidden 'timetable-data', @timetable.real_data %>
 <%= div_hidden 'tasks-data', @group.tasks.map(&:attributes).to_json %>
+<%= div_hidden 'class-changes-data', @timetable.class_changes.to_json %>
 <%= div_hidden 'group-id', @group.id %>
 
 <% breadcrumb @group %>

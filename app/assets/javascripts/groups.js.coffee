@@ -13,13 +13,28 @@ $(document).ready ->
   tasks_data = $('#tasks-data').text()
   if tasks_data != ''
     tasks = JSON.parse(tasks_data)
+    class_changes = JSON.parse($('#class-changes-data').text())
     events = tasks.map (task) ->
       {
-        id: task.id
+        id: "task#{task.id}"
         title: task.title
         start: task.deadline
         content: task.content
       }
+    for cc in class_changes
+      events.push {
+          id: "class-change1#{cc.id}"
+          title: '授業変更'
+          start: cc.date1
+          content: "#{cc.index1}時限目"
+        }
+      events.push {
+          id: "class_change2#{cc.id}"
+          title: '授業変更'
+          start: cc.date2
+          content: "#{cc.index2}時限目"
+        }
+
     current_balloon = null
     $('#calendar').fullCalendar(
       events: events
