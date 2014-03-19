@@ -1,3 +1,17 @@
-<% @timetable.versions.each_with_index.reverse_each do |version, id| %>
-  <%= User.find(version.reify.author).name %> <%= link_to 'ここまで戻す', rollback_group_timetable_path(@timetable.group, version_id: id ), method: 'POST' %><br>
-<% end %>
+<h1>編集履歴</h1>
+<table>
+  <tbody>
+    <tr>
+      <th>変更日</th><th>編集者</th><th></th>
+    </tr>
+    <% @timetable.versions.each_with_index.reverse_each do |version, id| %>
+      <% timetable = version.reify %>
+      <tr>
+        <td><%= timetable.updated_at.strftime('%Y年%m月%d日 %H時%M分') %></td>
+        <td><%= User.find(version.reify.author).name %></td>
+        <td><%= link_to 'ここまで戻す', rollback_group_timetable_path(@timetable.group, version_id: id ), method: 'POST' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  
