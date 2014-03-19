@@ -1,15 +1,13 @@
 <%= stylesheet_link_tag "comment"%>
 <% breadcrumb @task %>
 <%= breadcrumbs %>
+<br>
+最終編集者:<%= @task.user.name %>
 
 <!-- tweet button -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= request.url %>" data-text="<%= "#{@task.title} : #{@task.deadline.strftime('%m月%d日 %H:%M')}まで #{request.url}" %>" data-lang="ja" data-hashtags="Mr.Scheduler">ツイート</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-<%= link_to '編集', edit_group_task_path(@task.group, @task) %>
- 最終編集者:<%= @task.user.name %>
-
-<%= link_to '編集履歴', group_task_history_path(@task.group, @task) %>
 
 <p>
   <strong>Title:</strong>
@@ -64,3 +62,5 @@
     <%= f.submit:"コメント" %>
   </div>
 <% end %>
+<%= link_to '編集履歴', group_task_history_path(@task.group, @task),class:'btn1' %>
+<%= link_to '編集', edit_group_task_path(@task.group, @task),class:'btn1' %>
