@@ -27,9 +27,11 @@
 				<% if current_user %>
 				<div class="nav notice-box">
 					<ul>
-						<li><a id="notifications" title="<% current_user.notifications.reverse.each do |n| %>
-													    	  <%= n.content %>
-														 <% end %>">Notifications</a></li>
+						<li><a id="notifications" title="
+						<% current_user.notifications.reverse.each do |n| %>
+							<%= n.content %>
+						<% end %>
+						">Notifications</a></li>
 					</ul>
 				</div>
 				<% end %>
