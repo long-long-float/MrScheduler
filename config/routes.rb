@@ -30,6 +30,7 @@ MrScheduler::Application.routes.draw do
   end
 
   get 'notify_all' => 'notifications#notify_all'
+  get 'read_all' => 'notifications#read_all'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -25,10 +25,11 @@
           <a>学生のためのソーシャル課題管理システム</a>
         </div>
         <% if current_user %>
-          <%= div_hidden 'notifications-data', current_user.notifications.to_json %>
+          <%= div_hidden 'notifications-data', current_user.notifications.reverse.to_json %>
           <div class="nav notice-box">
             <ul>
-              <li><a id="notifications">[<%= current_user.notifications.where(is_read: false).count %>]</a></li>
+              <% count = current_user.notifications.where(is_read: false).count %>
+              <li><a id="notifications" class="<%= 'cn' if count > 0  %>"><%= count %></a></li>
             </ul>
           </div>
         <% end %>

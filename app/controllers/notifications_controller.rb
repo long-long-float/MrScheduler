@@ -5,7 +5,15 @@ class NotificationsController < ApplicationController
       n.save
     end
   end
-
+  
+  def read_all
+      current_user.notifications.where(is_read: false).each do |n|
+      n.is_read = true
+      n.save
+    end
+    render nothing:true
+  end
+  
   def notify_all
     now = DateTime.now
     Group.all.each do |group|

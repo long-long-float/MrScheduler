@@ -9,10 +9,15 @@ $ ->
   $('.side-menu').StickyScroll
     duration: 0
 
-  $notifications = $('<div>')
+  $notifications = $('<div>').addClass('nt')
   for notification in JSON.parse($('#notifications-data').text())[0...10]
-    $notifications.append(notification.content).append('<hr>')
-  $('#notifications').tooltipster
+    $notifications.append($('<a>').addClass(unless notification.is_read then 'highlight'  else 'none').attr('href','#').text(notification.content)).append('<br>')
+  $notifications.append($('<a>').attr('href','/user/notifications').text('全部読む'))
+  $('#notifications').click ->
+    #ajax code
+    $.get '/read_all'
+    $('#notifications').removeClass('cn').text('0')
+  .tooltipster
     trigger: 'click'
     position: 'bottom-left'
     content: $notifications
