@@ -1,0 +1,18 @@
+@charset "utf-8";
+@media screen and (max-width:680px) {
+	#side{
+		position:relative;
+		width:100%;
+	}
+	#main{
+		margin:0;
+		width:100%;
+	}
+	#main .work-box{
+        margin:5px;
+		width:95%;	
+	}
+	.fc-header-right{
+		visibility:hidden;
+	}
+}

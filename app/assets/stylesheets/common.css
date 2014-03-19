@@ -71,8 +71,7 @@ body{
 #side{
     position:absolute;
     width:25%;
-    min-height:1000px;
-    height:auto;
+    height:100%;
 }
 #side .side-menu{
     width:90%;
@@ -227,52 +226,13 @@ a.btn1 {
     text-align:center;
     width:150px;
 	text-decoration: none;
-    margin:0 5px;
+    margin:5px;
 	
 }
 a.btn1:hover{
     transition:all 0.2s linear 0s;
     border:none;
     background:#ff8c00;
-    cursor:pointer;
-	}
-a.btn2 {
-    padding:5px 0;
-    background-color:#cd853f;
-    text-align:center;
-    width:150px;
-	color: black;
-	-webkit-transition-property: background-color;  
-    -webkit-transition-duration: 1s;  
-    -webkit-transition-timing-function: linear;  
-	border-radius: 5px;
-	text-decoration: none;
-}
-
-a.btn2:hover {
-    transition:all 0.2s linear 0s;
-    border:none;
-    background:#ff7f50;
-    cursor:pointer;
-}
-
-a.btn3 {
-    padding:5px 0;
-    background-color:#a0522d;
-    text-align:center;
-    width:150px;
-	color: black;
-	-webkit-transition-property: background-color;  
-    -webkit-transition-duration: 1s;  
-    -webkit-transition-timing-function: linear;  
-	border-radius: 5px;
-	text-decoration: none;
-}
-
-a.btn3:hover {
-    transition:all 0.2s linear 0s;
-    border:none;
-    background:#ffa07a;
     cursor:pointer;
 }
 .btn-gp{

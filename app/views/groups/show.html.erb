@@ -21,7 +21,7 @@
   <br>
   <h2>タスク</h2>
   <br>
-  <table>
+  <table class="tk">
     <thead>
       <tr>
         <th>タイトル</th>
@@ -44,7 +44,7 @@
       <% end %>
     </tbody>
   </table>
-
+  <br>
   <%= link_to '新しいタスク', new_group_task_path(@group),:class =>'btn1' %>
 	<h2>カレンダー</h2>
   <div id="calendar"></div>
@@ -61,7 +61,7 @@
   <%= link_to '編集履歴', history_group_timetable_path(@group), :class =>'btn1' %>
   </div>
   <h2>授業変更</h2>
-   <table>
+   <table class="cc">
   <tr><th>変更前日付</th><th>変更前時限</th><th>変更後日付</th><th>変更後時限</th></tr>
  <% timetable_data = JSON.parse(@timetable.data) %>
  <% @timetable.class_changes.each do |cc| %>
@@ -75,6 +75,7 @@
   </tr>
  <% end %>
  </table>
+ <br>
  <div class="btn-gp">
   <%= link_to '授業変更', new_group_timetable_class_change_path(@group),:class =>'btn1' %>
  </div>
