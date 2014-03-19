@@ -1,48 +1,44 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>MrScheduler</title>
-		<%= stylesheet_link_tag    "application", media: "all" %>
-		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-		<%= stylesheet_link_tag "base", "common" ,"module","liquid"%>
-		<%= stylesheet_link_tag controller.controller_name %>
-		<%= javascript_include_tag "application" %>
-		<%= javascript_include_tag controller.controller_name %>
-		<%= csrf_meta_tags %>
-		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-		<meta content="学生のためのソーシャル課題管理システム" name="description"></meta>
-		<meta content="タスクマネージャー,学生,管理,スケジュール" name="keywords"></meta>
-	</head>
-	<body>
-		<div id="header">
-			<div class="nav-in">
-				<div class="nav logo">
-					<%= link_to root_path do %>
+  <head>
+    <title>MrScheduler</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <%= stylesheet_link_tag "base", "common" ,"module","liquid"%>
+    <%= stylesheet_link_tag controller.controller_name %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag controller.controller_name %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+    <meta content="学生のためのソーシャル課題管理システム" name="description"></meta>
+    <meta content="タスクマネージャー,学生,管理,スケジュール" name="keywords"></meta>
+  </head>
+  <body>
+    <div id="header">
+      <div class="nav-in">
+        <div class="nav logo">
+          <%= link_to root_path do %>
             <i class="fa fa-calendar"></i> Mr.Scheduler
           <% end %>
-				</div>
-				<div class="nav description">
-					<a>学生のためのソーシャル課題管理システム</a>
-				</div>
-				<% if current_user %>
-				<div class="nav notice-box">
-					<ul>
-						<li><a id="notifications" title="
-						<% current_user.notifications.reverse.each do |n| %>
-							<%= n.content %>
-						<% end %>
-						">Notifications</a></li>
-					</ul>
-				</div>
-				<% end %>
-			</div>
-		</div>
-		<div id="side">
-			<div class="side-menu">
-				<ul>
-				<% if user_signed_in? %>
-          <li><%= link_to "Notifications(#{current_user.notifications.where(is_read: false).count})", user_notifications_path %></li>
-					<li><%= link_to new_group_path do %>
+        </div>
+        <div class="nav description">
+          <a>学生のためのソーシャル課題管理システム</a>
+        </div>
+        <% if current_user %>
+          <%= div_hidden 'notifications-data', current_user.notifications.to_json %>
+          <div class="nav notice-box">
+            <ul>
+              <li><a id="notifications">[<%= current_user.notifications.where(is_read: false).count %>]</a></li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div id="side">
+      <div class="side-menu">
+        <ul>
+        <% if user_signed_in? %>
+          <li><%= link_to new_group_path do %>
             <i class="fa fa-bolt"></i> グループ作成
           <% end %></li>
           <li><%= link_to groups_path do %>
@@ -58,24 +54,24 @@
             <i class="fa fa-search"></i> <%= text_field_tag :query, params[:query], placeholder: 'タグを入力' %>
             <%= button_tag 'Search' %>
           <% end %>
-				<% else %>
-					<li><%= link_to new_user_session_path do %>
+        <% else %>
+          <li><%= link_to new_user_session_path do %>
             <i class="fa fa-sign-in"></i> ログイン
           <% end %></li>
-				<% end %>
-				</ul>
-			</div>
-		</div>
-		<div id="main">
+        <% end %>
+        </ul>
+      </div>
+    </div>
+    <div id="main">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-		<div class="work-box cf">
-			<%= yield %>
-		</div>
-		</div>
-		<div id="footer">
-			<a class="copyright">&copy; 2014 Mr.schedule</a>
-			<a id="skip" href="#header">ページトップへ</a>
-		</div>
+    <div class="work-box cf">
+      <%= yield %>
+    </div>
+    </div>
+    <div id="footer">
+      <a class="copyright">&copy; 2014 Mr.schedule</a>
+      <a id="skip" href="#header">ページトップへ</a>
+    </div>
   </body>
 </html>
