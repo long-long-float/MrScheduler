@@ -24,6 +24,7 @@
 				<div class="nav description">
 					<a>学生のためのソーシャル課題管理システム</a>
 				</div>
+				<% if current_user %>
 				<div class="nav notice-box">
 					<ul>
 						<li><a id="notifications" title="<% current_user.notifications.reverse.each do |n| %>
@@ -31,6 +32,7 @@
 														 <% end %>">Notifications</a></li>
 					</ul>
 				</div>
+				<% end %>
 			</div>
 		</div>
 		<div id="side">
