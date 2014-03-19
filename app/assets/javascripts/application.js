@@ -25,7 +25,6 @@ $(document).ready(function(){
 
 $(function() {
   $('#notifications').tooltipster({
-    content: $('<div>This is <i>Notification</i></div>'),
     trigger: 'click',
 	position: 'bottom-left'
   });

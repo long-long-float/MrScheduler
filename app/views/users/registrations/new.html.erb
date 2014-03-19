@@ -3,19 +3,19 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :name %><br />
+  <div><%= f.label :"名前" %><br />
   <%= f.text_field :name, autofocus: true %></div>
 
-  <div><%= f.label :title %><br />
+  <div><%= f.label :"肩書き" %><br />
   <%= f.text_field :title %></div>
 
-  <div><%= f.label :email %><br />
+  <div><%= f.label :"メールアドレス" %><br />
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
+  <div><%= f.label :"パスワード" %><br />
   <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div><%= f.label :"パスワード確認" %><br />
   <%= f.password_field :password_confirmation %></div>
 
   <div><%= f.submit "アカウント作成" %></div>
