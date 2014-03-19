@@ -1,3 +1,5 @@
+<%= div_hidden 'timetable-data', @timetable.real_data %>
+
 <%= form_for(@class_change, url: @url) do |f| %>
   <% if @class_change.errors.any? %>
     <div id="error_explanation">
@@ -18,6 +20,7 @@
   <div class="field">
     <%= f.label :"変更時限1" %><br>
     <%= f.number_field :index1 %>
+    <div id="subject1"></div>
   </div>
   <div class="field">
     <%= f.label :"日時2" %><br>
@@ -26,6 +29,7 @@
   <div class="field">
     <%= f.label :"変更時限2" %><br>
     <%= f.number_field :index2 %>
+    <div id="subject2"></div>
   </div>
   <div class="actions">
     <%= f.submit :"登録する" %>

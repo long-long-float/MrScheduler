@@ -1,4 +1,4 @@
-<%= div_hidden 'timetable-data', @group.timetable.real_data %>
+<%= div_hidden 'timetable-data', @timetable.real_data %>
 <%= div_hidden 'tasks-data', @group.tasks.map(&:attributes).to_json %>
 <%= div_hidden 'group-id', @group.id %>
 
@@ -50,21 +50,29 @@
   <div id="calendar"></div>
 
   <br>
-  <h2>時間割</h2> 作成者 <%= User.find(@group.timetable.author).name %>
+  <h2>時間割</h2> 作成者 <%= User.find(@timetable.author).name %>
   <br>
   <div id="drag">
-    <%= render 'timetables/timetable', timetable: @group.timetable %>
+    <%= render 'timetables/timetable', timetable: @timetable %>
   </div>
   <div class="btn-gp">
-  <%= link_to '時間割の編集', edit_group_timetable_path(@group),:class =>'btn1' %>
-  <%= link_to '設定', edit_detail_group_timetable_path(@group),:class =>'btn1' %>
-  <%= link_to '編集履歴', history_group_timetable_path(@group),:class =>'btn1' %>
+  <%= link_to '時間割の編集', edit_group_timetable_path(@group), :class =>'btn1' %>
+  <%= link_to '設定', edit_detail_group_timetable_path(@group), :class =>'btn1' %>
+  <%= link_to '編集履歴', history_group_timetable_path(@group), :class =>'btn1' %>
   </div>
   <h2>授業変更</h2>
    <table>
-   <tr><th>変更前日付</th><th>変更前時限</th><th>変更後日付</th><th>変更後時限</th></tr>
-  <% @group.timetable.class_changes.each do |cc| %>
-	<tr><td><%= cc.date1 %></td><td><%= cc.index1 %>時限目</td><td><%= cc.date2 %></td><td><%= cc.index2 %>時限目</td></tr>
+  <tr><th>変更前日付</th><th>変更前時限</th><th>変更後日付</th><th>変更後時限</th></tr>
+ <% timetable_data = JSON.parse(@timetable.data) %>
+ <% @timetable.class_changes.each do |cc| %>
+  <% subject1 = Subject.find(timetable_data[cc.index1 - 1][cc.date1.wday - 1]) %>
+  <% subject2 = Subject.find(timetable_data[cc.index2 - 1][cc.date2.wday - 1]) %>
+	<tr>
+    <td><%= cc.date1 %></td>
+    <td><%= cc.index1 %>時限目 <%= subject1.name %></td>
+    <td><%= cc.date2 %></td>
+    <td><%= cc.index2 %>時限目 <%= subject2.name %></td>
+  </tr>
  <% end %>
  </table>
  <div class="btn-gp">

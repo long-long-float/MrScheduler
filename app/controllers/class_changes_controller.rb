@@ -16,6 +16,7 @@ class ClassChangesController < ApplicationController
   def new
     @class_change = ClassChange.new
     @url = group_timetable_class_changes_path(params[:group_id])
+    @timetable = Group.find(params[:group_id]).timetable
   end
 
   # GET /class_changes/1/edit
@@ -34,6 +35,7 @@ class ClassChangesController < ApplicationController
         format.json { render action: 'show', status: :created, location: @class_change }
       else
         @url = group_timetable_class_changes_path(params[:group_id])
+        @timetable = Group.find(params[:group_id]).timetable
         format.html { render action: 'new' }
         format.json { render json: @class_change.errors, status: :unprocessable_entity }
       end
