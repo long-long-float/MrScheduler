@@ -1,11 +1,13 @@
+<h1>時間割の設定</h1>
+<br>
 <%= div_hidden 'subjects-data', @timetable.subjects.map(&:name).to_json %>
 
 <%= form_tag edit_detail_group_timetable_path(params[:group_id]) do %>
-  <%= label_tag '時限数' %>
+  <%= label_tag '最大時限数' %><br>
   <%= number_field_tag :period_count, @period_count, min: 1 %><br>
 
   <%= label_tag '教科(確定した後エンターを押してください)' %>
-  <%= text_area_tag :subjects, '', cols: 40, rows: 1 %><br>
+  <%= text_area_tag :subjects, '', cols: 40, rows: 1 %>
 
-  <%= submit_tag %>
+  <%= submit_tag :"保存" %>
 <% end %>

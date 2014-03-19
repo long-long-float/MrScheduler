@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>会員登録</h2>
 <div class="work-box">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -18,7 +18,7 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit "アカウント作成" %></div>
 <% end %>
 
 <%= render "users/shared/links" %>
