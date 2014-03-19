@@ -11,8 +11,12 @@ MrScheduler::Application.routes.draw do
       get 'history'
     end
 
-    resource :timetable do
+    resource :timetable, only: [:edit, :update] do
       resources :class_changes, only: [:new, :create]
+      get 'history'
+      post 'rollback'
+      get 'edit_detail'
+      post 'edit_detail' => 'timetables#update_detail'
     end
 
     member do
@@ -21,7 +25,11 @@ MrScheduler::Application.routes.draw do
     end
   end
 
-  resource :user
+  resource :user do
+    resources :notifications, only: [:index]
+  end
+
+  get 'notify_all' => 'notifications#notify_all'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MrScheduler</title>
-    <%= stylesheet_link_tag    "application", media: "all" %>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag controller.controller_name %>
-    <%= csrf_meta_tags %>
-  </head>
+	<head>
+		<title>MrScheduler</title>
+		<%= stylesheet_link_tag    "application", media: "all" %>
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<%= stylesheet_link_tag "base", "common" ,"module","liquid"%>
+		<%= stylesheet_link_tag controller.controller_name %>
+		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag controller.controller_name %>
+		<%= csrf_meta_tags %>
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+		<meta content="学生のためのソーシャル課題管理システム" name="description"></meta>
+		<meta content="タスクマネージャー,学生,管理,スケジュール" name="keywords"></meta>
+	</head>
 	<body>
 		<div id="header">
 			<div class="nav-in">
@@ -19,10 +24,9 @@
 				<div class="nav description">
 					<a>学生のためのソーシャル課題管理システム</a>
 				</div>
-				<div class="nav sns-box">
+				<div class="nav notice-box">
 					<ul>
-						<li><a href="#">facebook</a></li>
-						<li><a href="#">twitter</a></li>
+						<li><a id="notifications">Notifications</a></li>
 					</ul>
 				</div>
 			</div>
@@ -30,28 +34,27 @@
 		<div id="side">
 			<div class="side-menu">
 				<ul>
-				<li><p class="notice"><%= notice %></p></li>
-				<li><p class="alert"><%= alert %></p></li>
 				<% if user_signed_in? %>
+          <li><%= link_to "Notifications(#{current_user.notifications.where(is_read: false).count})", user_notifications_path %></li>
 					<li><%= link_to new_group_path do %>
-            <i class="fa fa-bolt"></i> New group
+            <i class="fa fa-bolt"></i> グループ作成
           <% end %></li>
           <li><%= link_to groups_path do %>
-            <i class="fa fa-list"></i> All groups
+            <i class="fa fa-list"></i> 全てのグループ
           <% end %></li>
           <li><%= link_to groups_path(joining: 1) do %>
-            <i class="fa fa-list"></i> My groups
+            <i class="fa fa-list"></i> 参加中のグループ
           <% end %></li>
           <li><%= link_to destroy_user_session_path do %>
-            <i class="fa fa-sign-out"></i> Sign out
+            <i class="fa fa-sign-out"></i> ログアウト
           <% end %></li>
           <%= form_tag search_path, method: 'GET' do %>
             <i class="fa fa-search"></i> <%= text_field_tag :query, params[:query], placeholder: 'タグを入力' %>
-            <%= submit_tag '検索検索ぅ！' %>
+            <%= button_tag 'Search' %>
           <% end %>
 				<% else %>
 					<li><%= link_to new_user_session_path do %>
-            <i class="fa fa-sign-in"></i> Sign in
+            <i class="fa fa-sign-in"></i> ログイン
           <% end %></li>
 				<% end %>
 				</ul>
@@ -60,7 +63,9 @@
 		<div id="main">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+		<div class="work-box cf">
 			<%= yield %>
+		</div>
 		</div>
 		<div id="footer">
 			<a class="copyright">&copy; 2014 Mr.schedule</a>

@@ -1,8 +1,12 @@
 /*
-*= require fullcalendar.css
+*= require fullcalendar
+*= require textext.core
+*= require textext.plugin.focus
+*= require textext.plugin.tags
 */
 
 /*
+
 
 Darko Bunic
 http://www.redips.net/
@@ -13,17 +17,20 @@ Mar, 2011.
 /* drag container */
 #main_container{
   margin: auto;
-  width: 730px;
+  width: 100%;
+  min-height:430px;
+  height:auto;
 }
     /* container for the left table */
     #main_container #left{
-      width: 130px;
-      height: 320px;
+      width: 110px;
+      height: auto;
       float: left;
       margin-right:auto;
     }
     /* container for the main table and message line below */
     #main_container #right{
+      height:auto;
       width: 675px;
       padding-left: auto;
       padding-right: 0px;
@@ -64,6 +71,7 @@ div#drag table {
     div#drag #table2 {
       /* align table to the right */
       margin-left: auto;
+      /*float:left;*/
     }
 
 
@@ -84,15 +92,13 @@ div#drag td{
     }
       /* styles for clone DIV elements in left table */
       div#drag #table1 div {
-        margin-left: 5px;
-        float: left;
+       float:left;
       }
       /* define styles for buttons */
       div#drag #table1 input {
         float: right;
         width: 15px;
         height: 23px;
-        margin-right: 5px;
         border-width: 1px;
         /* round corners */
         border-radius: 3px;
@@ -102,32 +108,8 @@ div#drag td{
 
 
 /* subject colors */
-.ar {
+.blue {
   background-color: #AAC8E2;
-}
-.bi {
-  background-color: #E7D783;
-}
-.ch {
-  background-color: #E99AE6;
-}
-.en {
-  background-color: #C4AFFF;
-}
-.et {
-  background-color: #91DEC5;
-}
-.hi {
-  background-color: #CFE17F;
-}
-.it {
-  background-color: #E7BD83;
-}
-.ma {
-  background-color: #FFC5C2;
-}
-.ph {
-  background-color: #A5F09D;
 }
 
 
@@ -180,11 +162,45 @@ div#drag td{
       padding: 0px;
     }
 
-#left{
-    float:left;
-    margin:5px;
+	
+table,th,td{border: solid 1px #a0522d}
+table{
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	}
+th,td{padding:10px 20px 10px 20px}
+th{
+	width: 100px;
+	background-color: #cd853f;
+	text-align:left
+	}
+td{
+	width:400px;
+	background-color: #ffedce;
+	}	
+tr{
+    background:none;
+    border:none;
 }
-#right{
-    float:left;
-    margin:5px;
+
+#drag{
+    min-height:430px;
+    height:auto;
+    width:100%;
+    height:100%;
+}
+#table1{
+    border:none;
+}
+#timetable-save-btn{
+   cursor:pointer;
+   float:right
+}
+.cc{
+	float:left;
+}
+.tk{
+	float:left;
 }

@@ -5,6 +5,7 @@
  */
 
 
+
 .fc {
 	direction: ltr;
 	text-align: left;
@@ -36,8 +37,10 @@ html .fc,
 	}
 
 .fc-header-left {
-	width: 25%;
-	text-align: left;
+    display:block;
+	width: 100%;
+	float: left;
+    clear:both;
 	}
 	
 .fc-header-center {
@@ -55,8 +58,8 @@ html .fc,
 	}
 	
 .fc-header-title h2 {
-	margin-top: 0;
-	white-space: nowrap;
+	margin: 50px 0px 10px 100px;
+    width:100%;
 	}
 	
 .fc .fc-header-space {

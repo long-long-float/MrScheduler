@@ -1,10 +1,15 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+#
 #= require fullcalendar.min.js
 #= require jquery.balloon.min.js
+#= require textext.core
+#= require textext.plugin.focus
+#= require textext.plugin.tags
 
 $(document).ready ->
+  # For calendar
   tasks_data = $('#tasks-data').text()
   if tasks_data != ''
     tasks = JSON.parse(tasks_data)
@@ -31,4 +36,11 @@ $(document).ready ->
         $("#event#{event.id}").hideBalloon() if current_balloon != event.id
       current_balloon = null
 
-  putSubjects (label) -> $('<div>').addClass(label[0..1].toLowerCase()).text(label)
+  # For timetable
+  putSubjects (subject) -> $('<div>').addClass(subject.color).text(subject.name)
+
+  # For tags
+  if $('#tags').length
+    $('#tags').textext
+      plugins: 'focus tags'
+      tagsItems: JSON.parse($('#tags-data').text())

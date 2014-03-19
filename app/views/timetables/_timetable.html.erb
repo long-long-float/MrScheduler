@@ -10,10 +10,11 @@
         <td class="mark dark"><%= name %></td>
       <% end %>
     </tr>
-    <% (8..16).each do |hour| %>
+    <% data = JSON.parse(timetable.data) %>
+    <% (data.count).times do |period| %>
       <tr>
-        <td class="mark dark"><%= hour %>:00</td>
-        <% 5.times do %><td></td><% end %>
+        <td class="mark dark"><%= period + 1 %>時限目</td>
+        <% data[period].count.times do %><td></td><% end %>
       </tr>
     <% end %>
   </tbody>

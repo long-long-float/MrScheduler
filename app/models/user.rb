@@ -9,6 +9,12 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :tasks
 
+  has_many :notifications
+
   validates :name, presence: true, length: { maximum: 20 }
   validates :title, presence: true, length: { maximum: 20 }
+
+  def notify(content)
+    notifications.create(content: content)
+  end
 end
